@@ -1,0 +1,407 @@
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\AdventurePatch.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\AdventurePatch.pdb
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Newtonsoft.Json.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Microsoft.Win32.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\netstandard.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.AppContext.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Collections.Concurrent.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Collections.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Collections.NonGeneric.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Collections.Specialized.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ComponentModel.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ComponentModel.EventBasedAsync.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ComponentModel.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ComponentModel.TypeConverter.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Console.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Data.Common.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.Contracts.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.Debug.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.Process.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.StackTrace.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.Tools.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.TraceSource.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Diagnostics.Tracing.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Drawing.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Dynamic.Runtime.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Globalization.Calendars.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Globalization.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Globalization.Extensions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.Compression.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.Compression.ZipFile.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.FileSystem.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.FileSystem.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.FileSystem.Watcher.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.IsolatedStorage.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.MemoryMappedFiles.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.Pipes.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.IO.UnmanagedMemoryStream.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Linq.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Linq.Expressions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Linq.Parallel.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Linq.Queryable.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Http.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.NameResolution.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.NetworkInformation.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Ping.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Requests.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Security.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.Sockets.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.WebHeaderCollection.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.WebSockets.Client.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Net.WebSockets.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ObjectModel.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Reflection.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Reflection.Extensions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Reflection.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Resources.Reader.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Resources.ResourceManager.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Resources.Writer.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Extensions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Handles.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.InteropServices.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Numerics.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Formatters.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Json.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Xml.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Claims.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Cryptography.Algorithms.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Cryptography.Csp.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Cryptography.Encoding.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Cryptography.Primitives.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.Principal.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Security.SecureString.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Text.Encoding.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Text.Encoding.Extensions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Text.RegularExpressions.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.Overlapped.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.Tasks.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.Tasks.Parallel.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.Thread.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.ThreadPool.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Threading.Timer.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.ValueTuple.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.ReaderWriter.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.XDocument.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.XmlDocument.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.XmlSerializer.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.XPath.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\System.Xml.XPath.XDocument.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\0Harmony.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Ai.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Common.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Core.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\DataManagement.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Effects.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Ftd.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\GridCasts.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Localisation.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Modding.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\NetInfrastructure.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Ui.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.CoreModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.PhysicsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Profiling.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Pathfinding.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Environments.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.IMGUIModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TextRenderingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\PlayerProfiles.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.InputLegacyModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AudioModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AssetBundleModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ParticleSystemModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Vectrosity.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ImageConversionModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ScreenCaptureModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityAnalyticsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestAudioModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\CamControl.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Youtube.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.VideoModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\StrategicAi.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Steamworks.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TerrainModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Shared.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UI.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Diplomacy.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\InControl.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AnimationModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\ES2.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TerrainPhysicsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestTextureModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UIModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.DSPGraphModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityCurlModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ContentLoadModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.PropertiesModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TLSModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AndroidJNIModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AccessibilityModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityConnectModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AIModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityAnalyticsCommonModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.PerformanceReportingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.Physics2DModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.SharedInternalsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ClothModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ClusterInputModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ClusterRendererModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.CrashReportingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TilemapModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.VFXModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.VRModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.GridModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.SubsystemsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.JSONSerializeModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.LocalizationModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestAssetBundleModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestWWWModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.NVIDIAModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.DirectorModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.VirtualTexturingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.GameCenterModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.SpriteMaskModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.StreamingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TextCoreFontEngineModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.TextCoreTextEngineModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.SpriteShapeModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.UIElementsModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.VehiclesModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.WindModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.XRModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.ARModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.InputModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\RenderHeads.AVProMovieCapture.Runtime.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\MoodkieSecurity.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.csproj.AssemblyReference.cache
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.AssemblyInfoInputs.cache
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.AssemblyInfo.cs
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.csproj.CoreCompileInputs.cache
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\Adventur.A5988E2C.Up2Date
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\obj\Debug\net4.6.2\AdventurePatch.pdb
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Unity.TextMeshPro.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\Breadboards.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.HierarchyCoreModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.MarshallingModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.AMDModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.InputForUIModule.dll
+C:\Users\Marc\Documents\From The Depths\Mods\AdventurePatch\AdventurePatch\bin\Debug\net4.6.2\UnityEngine.MultiplayerModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\AdventurePatch.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\AdventurePatch.pdb
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Newtonsoft.Json.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Microsoft.Win32.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\netstandard.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.AppContext.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Collections.Concurrent.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Collections.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Collections.NonGeneric.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Collections.Specialized.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ComponentModel.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ComponentModel.EventBasedAsync.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ComponentModel.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ComponentModel.TypeConverter.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Console.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Data.Common.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.Contracts.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.Debug.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.Process.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.StackTrace.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.Tools.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.TraceSource.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Diagnostics.Tracing.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Drawing.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Dynamic.Runtime.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Globalization.Calendars.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Globalization.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Globalization.Extensions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.Compression.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.Compression.ZipFile.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.FileSystem.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.FileSystem.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.FileSystem.Watcher.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.IsolatedStorage.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.MemoryMappedFiles.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.Pipes.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.IO.UnmanagedMemoryStream.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Linq.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Linq.Expressions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Linq.Parallel.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Linq.Queryable.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Http.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.NameResolution.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.NetworkInformation.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Ping.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Requests.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Security.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.Sockets.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.WebHeaderCollection.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.WebSockets.Client.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Net.WebSockets.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ObjectModel.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Reflection.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Reflection.Extensions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Reflection.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Resources.Reader.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Resources.ResourceManager.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Resources.Writer.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Extensions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Handles.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.InteropServices.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Numerics.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Formatters.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Json.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Runtime.Serialization.Xml.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Claims.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Cryptography.Algorithms.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Cryptography.Csp.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Cryptography.Encoding.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Cryptography.Primitives.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.Principal.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Security.SecureString.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Text.Encoding.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Text.Encoding.Extensions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Text.RegularExpressions.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.Overlapped.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.Tasks.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.Tasks.Parallel.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.Thread.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.ThreadPool.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Threading.Timer.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.ValueTuple.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.ReaderWriter.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.XDocument.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.XmlDocument.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.XmlSerializer.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.XPath.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\System.Xml.XPath.XDocument.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\0Harmony.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Ai.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Common.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Core.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\DataManagement.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Effects.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Ftd.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\GridCasts.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Localisation.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Modding.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\NetInfrastructure.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\PlayerProfiles.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Ui.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.CoreModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.PhysicsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Profiling.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Pathfinding.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Environments.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.IMGUIModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TextRenderingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.InputLegacyModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AudioModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AssetBundleModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ParticleSystemModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Vectrosity.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ImageConversionModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ScreenCaptureModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityAnalyticsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityAnalyticsCommonModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestAudioModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\CamControl.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Youtube.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.VideoModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\StrategicAi.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Steamworks.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TerrainModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AnimationModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Unity.TextMeshPro.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UI.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Shared.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Diplomacy.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\InControl.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\Breadboards.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\ES2.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TerrainPhysicsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestTextureModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UIModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.DSPGraphModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityCurlModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.HierarchyCoreModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ContentLoadModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.PropertiesModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TLSModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AndroidJNIModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.MarshallingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AccessibilityModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityConnectModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AIModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.AMDModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.PerformanceReportingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.Physics2DModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.SharedInternalsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ClothModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ClusterInputModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ClusterRendererModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.CrashReportingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TilemapModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.VFXModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.VRModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.GridModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.InputForUIModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.SubsystemsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.JSONSerializeModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.LocalizationModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.MultiplayerModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestAssetBundleModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UnityWebRequestWWWModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.NVIDIAModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.DirectorModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.VirtualTexturingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.GameCenterModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.SpriteMaskModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.StreamingModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TextCoreFontEngineModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.TextCoreTextEngineModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.SpriteShapeModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.UIElementsModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.VehiclesModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.WindModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.XRModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.ARModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\UnityEngine.InputModule.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\RenderHeads.AVProMovieCapture.Runtime.dll
+C:\Users\Marc\source\repos\adventurepatch\bin\Debug\net4.6.2\MoodkieSecurity.dll
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.csproj.AssemblyReference.cache
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.AssemblyInfoInputs.cache
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.AssemblyInfo.cs
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.csproj.CoreCompileInputs.cache
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.sourcelink.json
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\Adventur.A5988E2C.Up2Date
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.dll
+C:\Users\Marc\source\repos\adventurepatch\obj\Debug\net4.6.2\AdventurePatch.pdb

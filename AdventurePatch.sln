@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventurePatch", "AdventurePatch.csproj", "{6B314174-59FE-4171-BD07-B7ECEC6BB518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B314174-59FE-4171-BD07-B7ECEC6BB518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B314174-59FE-4171-BD07-B7ECEC6BB518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B314174-59FE-4171-BD07-B7ECEC6BB518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B314174-59FE-4171-BD07-B7ECEC6BB518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {281F27D3-45C7-4A5C-810F-D1581D95E1C0}
+	EndGlobalSection
+EndGlobal
