@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,17 +54,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "RZPatch.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\RZPatch.cs",
               "RelativeDocumentMoniker": "RZPatch.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\RZPatch.cs",
               "RelativeToolTip": "RZPatch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:12.791Z",
               "IsPinned": true,
@@ -72,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AdventurePatch",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\AdventurePatch.csproj",
               "RelativeDocumentMoniker": "AdventurePatch.csproj",
@@ -108,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Settings.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Settings.cs",
               "RelativeDocumentMoniker": "Settings.cs",
@@ -121,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SpawnCategoryPatch.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\SpawnCategoryPatch.cs",
               "RelativeDocumentMoniker": "SpawnCategoryPatch.cs",
@@ -186,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AdventurePatch.csproj",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\AdventurePatch.csproj",
               "RelativeDocumentMoniker": "AdventurePatch.csproj",

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurebellpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurebellpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurepatch.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurepatch.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\spawncategorypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,28 +23,24 @@
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:plugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\goldenbell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:goldenbell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurewarper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurewarper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurepatch.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:rzpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurebellpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurebellpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\0harmony.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}",
-      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:0harmony.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+      "AbsoluteMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|c:\\users\\marc\\source\\repos\\adventurepatch\\adventurewarper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B314174-59FE-4171-BD07-B7ECEC6BB518}|AdventurePatch.csproj|solutionrelative:adventurewarper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "RZPatch.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\RZPatch.cs",
               "RelativeDocumentMoniker": "RZPatch.cs",
@@ -72,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AdventurePatch",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\AdventurePatch.csproj",
               "RelativeDocumentMoniker": "AdventurePatch.csproj",
@@ -84,24 +80,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "0Harmony.dll",
-              "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\0Harmony.dll",
-              "RelativeDocumentMoniker": "0Harmony.dll",
-              "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\0Harmony.dll",
-              "RelativeToolTip": "0Harmony.dll",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
-              "WhenOpened": "2025-06-22T08:56:41.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Goldenbell.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Goldenbell.cs",
               "RelativeDocumentMoniker": "Goldenbell.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Goldenbell.cs",
               "RelativeToolTip": "Goldenbell.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:11.28Z",
               "EditorCaption": ""
@@ -114,7 +99,7 @@
               "RelativeDocumentMoniker": "Settings.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Settings.cs",
               "RelativeToolTip": "Settings.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAqwJcAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAIwJcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:15.171Z",
               "EditorCaption": ""
@@ -134,20 +119,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Plugin.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Plugin.cs",
               "RelativeDocumentMoniker": "Plugin.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Plugin.cs",
               "RelativeToolTip": "Plugin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:11.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Adventurewarper.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Adventurewarper.cs",
               "RelativeDocumentMoniker": "Adventurewarper.cs",
@@ -155,8 +140,7 @@
               "RelativeToolTip": "Adventurewarper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T21:03:10.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T21:03:10.539Z"
             },
             {
               "$type": "Document",
@@ -166,27 +150,27 @@
               "RelativeDocumentMoniker": "AdventurePatch.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\AdventurePatch.cs",
               "RelativeToolTip": "AdventurePatch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAUwCYAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:09.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Adventurebellpatch.cs",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Adventurebellpatch.cs",
               "RelativeDocumentMoniker": "Adventurebellpatch.cs",
               "ToolTip": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\Adventurebellpatch.cs",
               "RelativeToolTip": "Adventurebellpatch.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAAAFkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwFkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T21:03:09.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AdventurePatch.csproj",
               "DocumentMoniker": "C:\\Users\\Marc\\source\\repos\\adventurepatch\\AdventurePatch.csproj",
               "RelativeDocumentMoniker": "AdventurePatch.csproj",

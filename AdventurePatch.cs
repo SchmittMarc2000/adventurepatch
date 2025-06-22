@@ -54,7 +54,6 @@ namespace AdventurePatch
             forward.y = 0f;
             return vector3d;
         }
-
         static bool Prefix(ref Vector3d universePosition, Quaternion r)
         {
 
