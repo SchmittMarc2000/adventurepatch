@@ -21,7 +21,7 @@ namespace AdventurePatch
             settings = ModSettings.Reload();
             if (!settings.SpawnFortress) { return true; }
 
-            if (__instance.AdventureModeChance <= 0f || __instance.BlueprintType == enumBlueprintType.Installation)
+            if (__instance.BlueprintType == enumBlueprintType.Installation)
             {
                 float firepower = __instance.TotalAdjustedFirepower;
                 if ((__instance.BlueprintType == enumBlueprintType.Installation) && firepower > 10f) {   

@@ -31,8 +31,10 @@ namespace AdventurePatch
             int rzradiusMax = WorldSpecification.i.AdventureModeSettings.RZRadiusMax;
             ResourceZone resourceZone = R_Gameplay.ResourceZone.InstantiateACopy(PlanetList.MainFrame.UniversalPositionToFramePosition(universalPosition), Quaternion.identity);
             resourceZone.MakeAResourceZoneIfWeDontHaveOne();
-            resourceZone.MapResourceZone.Material.ReserveAmount = Mathf.Max(UnityEngine.Random.Range(1f, 2f)*(InstanceSpecification.i.Adventure.WarpPlaneDifficulty * settings.BonusMaterialPerDifficultyLevel + 30000), materialAmount);
-            int num = (int)Mathf.Max((float)(resourceZone.MapResourceZone.Material.ReserveAmount / (float)settings.ResourceZoneClampedDrainTime), Aux.Rnd.Next(materialGrowthMin, materialGrowthMax)); ;
+            resourceZone.MapResourceZone.Material.ReserveAmount = Mathf.Max(UnityEngine.Random.Range(1f, 1.5f)*(InstanceSpecification.i.Adventure.WarpPlaneDifficulty * settings.BonusMaterialPerDifficultyLevel + 30000), materialAmount);
+            uint clamptime = settings.ResourceZoneClampedDrainTime;
+            if (clamptime == 0) clamptime = 1;
+            int num = (int)Mathf.Max((float)(resourceZone.MapResourceZone.Material.ReserveAmount / (float)clamptime), Aux.Rnd.Next(materialGrowthMin, materialGrowthMax));
             resourceZone.MapResourceZone.Material.Growth = (float)num;
             int num2 = Aux.Rnd.Next(rzradiusMin, rzradiusMax);
             resourceZone.MapResourceZone.Radius = (float)num2;

@@ -68,6 +68,10 @@ namespace AdventurePatch
     {
         public static bool Prefix(AdventureBell __instance, IStatusUpdate updater)
         {
+            ModSettings settings;
+            settings = ModSettings.Reload();
+            if (settings.IgnoreAltitude) return false;
+
             float altitude = __instance.AltitudeAboveWaves;
 
             if (altitude <= 0f)
@@ -81,6 +85,22 @@ namespace AdventurePatch
                     AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
             }
             return false;
+        }
+    }
+    [HarmonyPatch(typeof(AdventureBell))]
+    [HarmonyPatch("RegisterSpawnRequest")]
+    public static class AdventureBell_RegisterSpawnRequest_Patch
+    {
+        static bool Prefix(AdventureBell __instance, ref bool __result)
+        {
+            ModSettings settings = ModSettings.Reload();
+            if (settings.IgnoreAltitude)
+            {
+                __result = AdventureModeProgression.RequestDelayedSpawn(5U);
+                return false;
+            }
+            // Let original method run if IgnoreAltitude is false
+            return true;
         }
     }
 }

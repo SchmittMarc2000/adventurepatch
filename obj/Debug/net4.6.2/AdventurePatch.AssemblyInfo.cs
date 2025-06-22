@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdventurePatch")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6095dcdff9b19eb8e193c80682c4fd8c14b6a7b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa65b5dbc49c5d0c0fbb9b3134e75abc2e2067fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdventurePatch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdventurePatch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

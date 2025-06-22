@@ -78,7 +78,7 @@ namespace AdventurePatch
     {
         public Setting<uint> AdventureBellDelay { get; set; } = new Setting<uint>(
             60,
-            "Cooldown of the Adventurebell. Default: 60"
+            "Cooldown of the Adventurebell in Seconds. Default: 60"
         );
 
         public Setting<bool> EnemySpawnDistancePatch { get; set; } = new Setting<bool>(
@@ -88,12 +88,12 @@ namespace AdventurePatch
 
         public Setting<float> SpawnBonusDistance { get; set; } = new Setting<float>(
             500.0f,
-            "Extra distance added to the engagement range. Default: 500"
+            "Extra distance added to the desired engagement range. Default: 500"
         );
 
         public Setting<float> MinimumSpawnrange { get; set; } = new Setting<float>(
-            1500.0f,
-            "Enforces enemies are at least this far away when spawning them in. Default: 1500"
+            2000.0f,
+            "Enforces enemies are at least this far away when spawning them in. Default: 2000"
         );
 
         //public Setting<uint> AdventureWarperDelay { get; set; } = new Setting<uint>(
@@ -112,13 +112,17 @@ namespace AdventurePatch
         );
 
         public Setting<float> BonusMaterialPerDifficultyLevel { get; set; } = new Setting<float>(
-            800.0f,
-            "Extra reserve material gained per difficulty level in resource zones. Default: 800"
+            500.0f,
+            "Extra reserve material gained per difficulty level in resource zones. Default: 500"
         );
 
         public Setting<bool> SpawnFortress { get; set; } = new Setting<bool>(
-            true,
-            "Determines if Fortresses are allowed to spawn. Default: true"
+            false,
+            "Determines if Fortresses are allowed to spawn. Default: false"
+        );
+        public Setting<bool> IgnoreAltitude { get; set; } = new Setting<bool>(
+            false,
+            "Allows the bell to always ring. Default: false"
         );
 
         private static readonly string settingsFilePath = Path.Combine(
@@ -140,16 +144,6 @@ namespace AdventurePatch
             {
                 string json = File.ReadAllText(settingsFilePath);
                 ModSettings settings = JsonConvert.DeserializeObject<ModSettings>(json);
-                //AdvLogger.LogEvent($"settings loaded: " +
-                //$"AdventureBellDelay={settings.AdventureBellDelay}, " +
-                //$"EnemySpawnDistancePatch={settings.EnemySpawnDistancePatch}, " +
-                //$"SpawnBonusDistance={settings.SpawnBonusDistance}, " +
-                //$"MinimumSpawnrange={settings.MinimumSpawnrange}, " +
-                //$"AdventureWarperDelay={settings.AdventureWarperDelay}, " +
-                //$"ResourceZoneDiffScaling={settings.ResourceZoneDiffScaling}, " +
-                //$"ResourceZoneClampedDrainTime={settings.ResourceZoneClampedDrainTime}, " +
-                //$"BonusMaterialPerDifficultyLevel={settings.BonusMaterialPerDifficultyLevel}, " +
-                //$"SpawnFortress={settings.SpawnFortress}");
                 return settings ?? new ModSettings();
 
             }
@@ -159,7 +153,6 @@ namespace AdventurePatch
             }
 
         }
-
         public static ModSettings Reload()
         {
             return LoadSettings();
