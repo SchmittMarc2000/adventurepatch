@@ -122,7 +122,7 @@ namespace AdventurePatch
         );
         public Setting<bool> IgnoreAltitude { get; set; } = new Setting<bool>(
             false,
-            "Allows the bell to always ring. Default: false"
+            "Allows ringing the Bell regardless of Altitude. Default: false"
         );
 
         private static readonly string settingsFilePath = Path.Combine(

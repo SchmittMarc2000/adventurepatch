@@ -8,31 +8,32 @@ using System;
 namespace AdventurePatch
 {
     [HarmonyPatch(typeof(AdventureModeProgression))]
-    [HarmonyPatch("RequestDelayedSpawn")]
-    class RequestDelayedSpawnPatch
+    [HarmonyPatch(nameof(AdventureModeProgression.RequestDelayedSpawn))]
+    public static class RequestDelayedSpawnPatch
     {
-        static bool Prefix(ref uint delayInSeconds, ref bool __result)
+        static bool Prefix(uint delayInSeconds, ref bool __result)
         {
-            ModSettings settings;
-            settings = ModSettings.Reload();
+            ModSettings settings = ModSettings.Reload();
             AdventureModeProgression.BellRingPeriod = settings.AdventureBellDelay;
 
-            uint num = (uint)GameTimer.Instance.GameTime;
-            bool flag = InstanceSpecification.i.Adventure.LastBellRingTimeInt == uint.MaxValue || (long)(num - InstanceSpecification.i.Adventure.LastBellRingTimeInt) >= (long)((ulong)AdventureModeProgression.BellRingPeriod);
-            if (flag)
+            uint now = (uint)GameTimer.Instance.GameTime;
+            uint last = InstanceSpecification.i.Adventure.LastBellRingTimeInt;
+
+            bool bellCooldownPassed = last == uint.MaxValue || now - last >= AdventureModeProgression.BellRingPeriod;
+
+            if (bellCooldownPassed)
             {
-                uint requestedSpawnTimeInt = InstanceSpecification.i.Adventure.RequestedSpawnTimeInt;
-                bool flag2 = requestedSpawnTimeInt == uint.MaxValue;
-                if (flag2)
+                if (InstanceSpecification.i.Adventure.RequestedSpawnTimeInt == uint.MaxValue)
                 {
-                    InstanceSpecification.i.Adventure.RequestedSpawnTimeInt = num + delayInSeconds;
-                    InstanceSpecification.i.Adventure.LastBellRingTimeInt = num;
+                    InstanceSpecification.i.Adventure.RequestedSpawnTimeInt = now + delayInSeconds;
+                    InstanceSpecification.i.Adventure.LastBellRingTimeInt = now;
                     __result = true;
-                    return false;
+                    return false; // Skip original
                 }
             }
+
             __result = false;
-            return false;
+            return false; // Skip original
         }
     }
     [HarmonyPatch(typeof(AdventureBell))]
@@ -99,7 +100,6 @@ namespace AdventurePatch
                 __result = AdventureModeProgression.RequestDelayedSpawn(5U);
                 return false;
             }
-            // Let original method run if IgnoreAltitude is false
             return true;
         }
     }
