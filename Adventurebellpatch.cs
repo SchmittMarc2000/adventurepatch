@@ -4,7 +4,8 @@ using BrilliantSkies.Ftd.Planets.Instances;
 using BrilliantSkies.Ui.Tips;
 using HarmonyLib;
 using System;
-
+using BrilliantSkies.PlayerProfiles;
+using BrilliantSkies.Core.Logger;
 namespace AdventurePatch
 {
     [HarmonyPatch(typeof(AdventureModeProgression))]
@@ -13,8 +14,9 @@ namespace AdventurePatch
     {
         static bool Prefix(uint delayInSeconds, ref bool __result)
         {
-            ModSettings settings = ModSettings.Reload();
-            AdventureModeProgression.BellRingPeriod = settings.AdventureBellDelay;
+            //ModSettings settings = ModSettings.Reload();
+            //AdventureModeProgression.BellRingPeriod = settings.AdventureBellDelay;
+            AdventureModeProgression.BellRingPeriod = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().AdventureBellDelay;
 
             uint now = (uint)GameTimer.Instance.GameTime;
             uint last = InstanceSpecification.i.Adventure.LastBellRingTimeInt;
@@ -42,12 +44,14 @@ namespace AdventurePatch
     {
         public static void Postfix(AdventureBell __instance, ProTip tip)
         {
-            ModSettings settings;
-            settings = ModSettings.Reload();
+            //ModSettings settings;
+            //settings = ModSettings.Reload();
             uint num = (uint)GameTimer.Instance.GameTime;
             float deltatime = (num - InstanceSpecification.i.Adventure.LastBellRingTimeInt);
-            float remainder = settings.AdventureBellDelay - deltatime;
-            if (deltatime > settings.AdventureBellDelay | (InstanceSpecification.i.Adventure.LastBellRingTimeInt == uint.MaxValue))
+            //float remainder = settings.AdventureBellDelay - deltatime;
+            uint belldelay = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().AdventureBellDelay;
+            float remainder = belldelay - deltatime;
+            if (deltatime > belldelay | (InstanceSpecification.i.Adventure.LastBellRingTimeInt == uint.MaxValue))
             {
                 tip.Add<ProTipSegment_TextAdjustable>(
                    new ProTipSegment_TextAdjustable(500,
@@ -69,21 +73,30 @@ namespace AdventurePatch
     {
         public static bool Prefix(AdventureBell __instance, IStatusUpdate updater)
         {
-            ModSettings settings;
-            settings = ModSettings.Reload();
-            if (settings.IgnoreAltitude) return false;
+            //ModSettings settings;
+            //settings = ModSettings.Reload();
+            //if (settings.IgnoreAltitude) return false;
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude) {
+                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but IgnoreAltitude is true so we exit immediately.");
+                return false;
+            };
+
+            AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, Ingorealtitude is false so we append the required tooltips.");
+            return true;
 
             float altitude = __instance.AltitudeAboveWaves;
 
             if (altitude <= 0f)
             {
-                updater.FlagWarning(__instance,
-                    AdventureBell._locFile.Format("Tip_BellWaterWarning", "Bell cannot ring underwater", Array.Empty<object>()));
+                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but altitude is 0 or less.");
+                //updater.FlagWarning(__instance,
+                //AdventureBell._locFile.Format("Tip_BellWaterWarning", "Bell cannot ring underwater", Array.Empty<object>()));
             }
             if (altitude >= 300f)
             {
-                updater.FlagWarning(__instance,
-                    AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
+                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but altitude is above 300m.");
+                //updater.FlagWarning(__instance,
+                //AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
             }
             return false;
         }
@@ -94,8 +107,9 @@ namespace AdventurePatch
     {
         static bool Prefix(AdventureBell __instance, ref bool __result)
         {
-            ModSettings settings = ModSettings.Reload();
-            if (settings.IgnoreAltitude)
+            //ModSettings settings = ModSettings.Reload();
+            //if (settings.IgnoreAltitude)
+            if(ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude) // skips altitude check
             {
                 __result = AdventureModeProgression.RequestDelayedSpawn(5U);
                 return false;

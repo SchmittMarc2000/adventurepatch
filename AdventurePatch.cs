@@ -24,7 +24,7 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
-
+using BrilliantSkies.PlayerProfiles;
 
 namespace AdventurePatch
 {
@@ -57,10 +57,10 @@ namespace AdventurePatch
         static bool Prefix(ref Vector3d universePosition, Quaternion r)
         {
 
-            ModSettings settings;
-            settings = ModSettings.Reload();
-            if (!settings.EnemySpawnDistancePatch) { return true; }
-
+            //ModSettings settings;
+            //settings = ModSettings.Reload();
+            //if (!settings.EnemySpawnDistancePatch) { return true; }
+            if(!ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDistancePatch) { return true; }
             int num = 0;
             float num2 = 0f;
 
@@ -110,9 +110,12 @@ namespace AdventurePatch
                     bool flag6 = worldSpecificationFactionDesign2 != null;
                     if (flag6)
                     {
-                        AdvLogger.LogError(string.Format("A unit \"{0}\" has been chosen, and the difficutly is {1}", worldSpecificationFactionDesign2.Name, worldSpecificationFactionDesign2.AdventureModeDifficultyMean), LogOptions.OnlyInDeveloperLog);
-
-                        float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + settings.SpawnBonusDistance, settings.MinimumSpawnrange);
+                        //AdvLogger.LogError(string.Format("A unit \"{0}\" has been chosen, and the difficutly is {1}", worldSpecificationFactionDesign2.Name, worldSpecificationFactionDesign2.AdventureModeDifficultyMean), LogOptions.OnlyInDeveloperLog);
+                        
+                        //float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + settings.SpawnBonusDistance, settings.MinimumSpawnrange);
+                        float bonusDistance = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnBonusDistance;
+                        float minimumSpawnRange = ProfileManager.Instance.GetModule<AP_MConfig>().MinimumSpawnrange;
+                        float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + bonusDistance, minimumSpawnRange);
                         universePosition = SpawnForcePatch.FindAPointInFrontOfPrimaryForce(spawnrange);
 
                         universePosition.y = (double)worldSpecificationFactionDesign2.GetRandomSpawnPointOffset().y;

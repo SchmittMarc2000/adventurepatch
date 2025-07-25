@@ -17,9 +17,10 @@ namespace AdventurePatch
     {
         static bool Prefix(WorldSpecificationFactionDesign __instance, AdventureType type, ref bool __result)
         {
-            ModSettings settings;
-            settings = ModSettings.Reload();
-            if (!settings.SpawnFortress) { return true; }
+            //ModSettings settings;
+            //settings = ModSettings.Reload();
+            //if (!settings.SpawnFortress) { return true; }
+            if(!ProfileManager.Instance.GetModule<AP_MConfig>().SpawnFortress) { return true; }
 
             if (__instance.BlueprintType == enumBlueprintType.Installation)
             {

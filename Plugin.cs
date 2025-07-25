@@ -23,7 +23,7 @@ namespace AdventurePatch {
             }
             string ModPath = text;
             ModProblems.AddModProblem($"Adventurepatch active, version {version}", ModPath, string.Empty, false);
-            ModSettings settings = ModSettings.LoadSettings();
+            //ModSettings settings = ModSettings.LoadSettings();
             Harmony HarmonyPatches = new Harmony("Adventurepatch");
             HarmonyPatches.PatchAll();
             
@@ -43,7 +43,7 @@ namespace AdventurePatch {
 
         public Version version
         {
-            get { return new Version(1, 0, 1); }
+            get { return new Version(1, 0, 2); }
         }
     }
 }
