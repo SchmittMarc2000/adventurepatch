@@ -13,12 +13,11 @@ namespace AdventurePatch
     public static class AdventureModeProgression_RunAdventureMode_Patch
     {
         private static float timeSinceLastSpawn = 0f;
-        private static readonly float spawnInterval = ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDelay;
 
         public static void Postfix(ITimeStep dt)
         {
             timeSinceLastSpawn += dt.DeltaTime;
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns && timeSinceLastSpawn >= spawnInterval)
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns && timeSinceLastSpawn >= ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDelay)
             {
                 AdvLogger.LogInfo("Spawning a force due to ForceEnemySpawns setting.");
                 timeSinceLastSpawn = 0f;
