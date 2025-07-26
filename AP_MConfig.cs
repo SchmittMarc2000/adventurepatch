@@ -22,6 +22,11 @@ namespace AdventurePatch
             public bool SpawnFortress { get; set; } = false;
             public bool IgnoreAltitude { get; set; } = true;
 
+            public bool BlockRandomSpawns { get; set; } = false;
+
+            public bool OverrideSpawnDifficulty { get; set; } = false;
+            public int SpawnDifficulty { get; set; } = 0; 
+
         }
         public override ModuleType ModuleType => ModuleType.Options;
         protected override string FilenameAndExtension => "profile.APModConfig";
@@ -34,6 +39,10 @@ namespace AdventurePatch
         public float BonusMaterialPerDifficultyLevel { get => Internal.BonusMaterialPerDifficultyLevel; set => Internal.BonusMaterialPerDifficultyLevel = value; }
         public bool SpawnFortress { get => Internal.SpawnFortress; set => Internal.SpawnFortress = value; }
         public bool IgnoreAltitude { get => Internal.IgnoreAltitude; set => Internal.IgnoreAltitude = value; }
+        public bool BlockRandomSpawns { get => Internal.BlockRandomSpawns; set => Internal.BlockRandomSpawns = value; }
 
-    }
+        public int SpawnDifficulty { get => Internal.SpawnDifficulty; set => Internal.SpawnDifficulty = value; }
+
+        public bool OverrideSpawnDifficulty { get => Internal.OverrideSpawnDifficulty; set => Internal.OverrideSpawnDifficulty = value; }
+        }
 }

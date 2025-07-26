@@ -42,7 +42,7 @@ namespace AdventurePatch
     [HarmonyPatch("AppendToolTip")]
     public static class AdventureBell_AppendToolTip_Patch
     {
-        public static void Postfix(AdventureBell __instance, ProTip tip)
+        public static void Postfix(AdventureBell __instance, ProTip tip) //if we prefix and return false the tooltiptext for what it does goes missing, but not the annoying 1 minute thingy.
         {
             //ModSettings settings;
             //settings = ModSettings.Reload();
@@ -77,28 +77,25 @@ namespace AdventurePatch
             //settings = ModSettings.Reload();
             //if (settings.IgnoreAltitude) return false;
             if (ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude) {
-                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but IgnoreAltitude is true so we exit immediately.");
+                updater.FlagOkay(__instance);
                 return false;
             };
 
-            AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, Ingorealtitude is false so we append the required tooltips.");
             return true;
 
-            float altitude = __instance.AltitudeAboveWaves;
+            //float altitude = __instance.AltitudeAboveWaves;
 
-            if (altitude <= 0f)
-            {
-                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but altitude is 0 or less.");
-                //updater.FlagWarning(__instance,
-                //AdventureBell._locFile.Format("Tip_BellWaterWarning", "Bell cannot ring underwater", Array.Empty<object>()));
-            }
-            if (altitude >= 300f)
-            {
-                AdvLogger.LogInfo("AdventureBell_CheckStatus_Replace Prefix called, but altitude is above 300m.");
-                //updater.FlagWarning(__instance,
-                //AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
-            }
-            return false;
+            //if (altitude <= 0f)
+            //{
+            //    //updater.FlagWarning(__instance,
+            //    //AdventureBell._locFile.Format("Tip_BellWaterWarning", "Bell cannot ring underwater", Array.Empty<object>()));
+            //}
+            //if (altitude >= 300f)
+            //{
+            //    //updater.FlagWarning(__instance,
+            //    //AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
+            //}
+            //return false;
         }
     }
     [HarmonyPatch(typeof(AdventureBell))]
