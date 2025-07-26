@@ -45,11 +45,64 @@ using BrilliantSkies.Core.Logger;
 
 namespace AdventurePatch
 {
+    
     public class AP_Ui : SuperScreen<AP_MConfig>
     {
         public AP_Ui(ConsoleWindow window, AP_MConfig config)
             : base(window, config)
         {
+        }
+
+        private void adventureWarp(string gatetype = "alone", int difficultyoffset = 0)
+        {
+            bool NotAdventure = !InstanceSpecification.i.Header.IsAdventure;
+            if(NotAdventure)
+            {
+                AdvLogger.LogInfo("AdventureWarp called in non-adventure mode, aborting warp.");
+                return;
+            }
+            switch(gatetype)
+            {
+                case "alone":
+                    AdventureModeProgression.Common_DoWarp(WarpGateType.Alone, InstanceSpecification.i.Adventure.PrimaryForceUniversePosition);
+                    break;
+                case "easier":
+                    AdventureModeProgression.Common_DoWarp(WarpGateType.Easier, InstanceSpecification.i.Adventure.PrimaryForceUniversePosition);
+                    break;
+                case "harder":
+                    AdventureModeProgression.Common_DoWarp(WarpGateType.Harder, InstanceSpecification.i.Adventure.PrimaryForceUniversePosition);
+                    break;
+                default:
+                    AdvLogger.LogInfo("Invalid warp gate type specified: " + gatetype);
+                    return;
+            }
+        }
+        private void spawnResourceZone()
+        {
+            if (InstanceSpecification.i.Header.IsAdventure)
+            {
+                Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
+                AdventureModeProgression.Common_SpawnRz(position, 29990f);
+            }
+            else
+            {
+                AdvLogger.LogInfo("Attempted to spawn resource zone outside of adventure mode.");
+            }
+        }
+
+        private void destroyEnemies()
+        {
+            int vehiclecount = StaticConstructablesManager.Constructables.Count;
+            for (int i = 0; i < vehiclecount; i++)
+            {
+                bool flag4 = StaticConstructablesManager.Constructables[i].GetTeam() != GAME_STATE.MyTeam;
+                if (flag4)
+                {
+                    StaticConstructablesManager.Constructables[i].DestroyCompletely(DestroyReason.Wiped, true);
+                    i--;
+                    vehiclecount--;
+                }
+            }
         }
 
         public override Content Name => new Content("Adventurepatch", new ToolTip("The options menu for the Adventurepatches Mod"));
@@ -62,7 +115,7 @@ namespace AdventurePatch
             gameplaySettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             AdvLogger.LogInfo("Building Adventurepatch options screen");
             // Toggle and sliders
-            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Enemy spawn at preferred distance", "Allow enemies to spawn at their preferred engagement range.",
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Enemies spawn at a customiseable distance", "Allow enemies to spawn at their preferred engagement range, respecting the minimum and bonus distance.",
                 (AP_MConfig I, bool b) => I.EnemySpawnDistancePatch = b,
                 (AP_MConfig I) => I.EnemySpawnDistancePatch));
 
@@ -77,9 +130,14 @@ namespace AdventurePatch
             gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Ignore bell altitude checks", "Allows ringing the Bell regardless of Altitude.",
                 (AP_MConfig I, bool b) => I.IgnoreAltitude = b,
                 (AP_MConfig I) => I.IgnoreAltitude));
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Allow Sandboxing settings/buttons", "Mainly for debugging/testing purposes, not intended to be balanced.",
+                (AP_MConfig I, bool b) => I.AllowSandboxing = b,
+                (AP_MConfig I) => I.AllowSandboxing));
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Force enemy spawns", "Forces enemy spawns to happen, even if the bell is not rung.",
+                (AP_MConfig I, bool b) => I.ForceEnemySpawns = b,
+                (AP_MConfig I) => I.ForceEnemySpawns));
 
             
-
             gameplaySettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 1, 300, 1f, 60f,
                 M.m((AP_MConfig I) => I.AdventureBellDelay),
                 "Bell cooldown (seconds)",
@@ -109,27 +167,55 @@ namespace AdventurePatch
                 "Bonus materials per difficulty level",
                 (AP_MConfig I, float f) => I.BonusMaterialPerDifficultyLevel = f,
                 new ToolTip("Extra reserve material in resource zones added for each difficulty level.")));
+            
+
 
             ScreenSegmentTable sandBoxSettings = CreateTableSegment(2, 15);
             sandBoxSettings.SqueezeTable = false;
             sandBoxSettings.NameWhereApplicable = "Sandboxing Settings";
             sandBoxSettings.SpaceBelow = 20f;
             sandBoxSettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
+            sandBoxSettings.SetConditionalDisplay(() => _focus.AllowSandboxing);
 
-            
-            sandBoxSettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 100, 5, 10,
+            sandBoxSettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 100, 5, 50,
                 M.m((AP_MConfig I) => I.SpawnDifficulty),
-                "Enemys spawn according to this difficuly.",
+                "Enemy Spawn difficulty",
                 (AP_MConfig I, float f) => I.SpawnDifficulty = (int)f,
                 new ToolTip("Spawned enemies will spawn according to this difficulty instead.")));
-            sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Override Difficulty with custom slider", "Allows to set the difficulty of spawned enemies to the sliders value.",
+            sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Override Difficulty with custom slider value", "Spawning enemies will use the custom value instead of the warp difficulty.",
                 (AP_MConfig I, bool b) => I.OverrideSpawnDifficulty = b,
                 (AP_MConfig I) => I.OverrideSpawnDifficulty));
-            sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Block random spawns", "Blocks random time based enemy spawns. The Bell still works.",
+            sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus, "Block enemy spawns", "Blocks random time based enemy spawns. The Bell still works.",
                 (AP_MConfig I, bool b) => I.BlockRandomSpawns = b,
                 (AP_MConfig I) => I.BlockRandomSpawns));
 
+            //Buttons
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,"Enter a Blue Portal",new ToolTip("This button will send you through a Blue Portal."),(AP_MConfig I) => adventureWarp()
+            ));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,"Enter a Green Portal",new ToolTip("This button will send you through a Green Portal."),(AP_MConfig I) => adventureWarp("easier")
+            ));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,"Enter a Red Portal",new ToolTip("This button will send you through a Red Portal."),(AP_MConfig I) => adventureWarp("harder")
+            ));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,"Spawn a Resource Zone",new ToolTip("This button will spawn a resource zone ontop of the main craft."),(AP_MConfig I) => spawnResourceZone()
+            ));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,"Destroy all enemies",new ToolTip("This button will instantly remove all enemies."),(AP_MConfig I) => destroyEnemies()
+            ));
             AdvLogger.LogInfo("Adventurepatch options screen built successfully");
+
+            ScreenSegmentTable enemySection = CreateTableSegment(2, 15);
+            enemySection.SqueezeTable = false;
+            enemySection.NameWhereApplicable = "Forced spawns settings";
+            enemySection.SpaceBelow = 20f;
+            enemySection.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
+            enemySection.SetConditionalDisplay(() => _focus.ForceEnemySpawns);
+
+            enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 5, 600, 5, 60,
+                M.m((AP_MConfig I) => I.EnemySpawnDelay),
+                "Time between forced enemy spawns",
+                (AP_MConfig I, float f) => I.EnemySpawnDelay = (uint)f,
+                new ToolTip("Time between spawns in seconds.")));
+
+
 
 
 

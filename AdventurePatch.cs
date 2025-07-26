@@ -61,8 +61,8 @@ namespace AdventurePatch
             //settings = ModSettings.Reload();
             //if (!settings.EnemySpawnDistancePatch) { return true; }
             if(!ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDistancePatch) { return true; }
-            int num = 0;
-            float num2 = 0f;
+            int enemycount = 0;
+            float enemyvolume = 0f;
 
 
             for (int i = 0; i < StaticConstructablesManager.Constructables.Count; i++)
@@ -71,15 +71,15 @@ namespace AdventurePatch
                 bool flag = mainConstruct != null && mainConstruct.GetTeam() != GAME_STATE.MyTeam;
                 if (flag)
                 {
-                    num++;
-                    num2 += mainConstruct.AllBasics.VolumeAliveUsed;
+                    enemycount++;
+                    enemyvolume += mainConstruct.AllBasics.VolumeAliveUsed;
                 }
             }
 
-            bool flag2 = num >= 10;
+            bool flag2 = enemycount >= 10;
             if (!flag2)
             {
-                bool flag3 = num2 > 30000f;
+                bool flag3 = enemyvolume > 30000f;
                 if (!flag3)
                 {
                     RandomSelection<WorldSpecificationFactionDesign> randomSelection = new RandomSelection<WorldSpecificationFactionDesign>();
@@ -103,7 +103,10 @@ namespace AdventurePatch
 
                     WorldSpecificationFactionDesign worldSpecificationFactionDesign2 = randomSelection.Select(delegate (WorldSpecificationFactionDesign t)
                     {
-                        float num3 = Maths.NormalProbability(InstanceSpecification.i.Adventure.WarpPlaneDifficulty, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance;
+
+                        float difficulty = InstanceSpecification.i.Adventure.WarpPlaneDifficulty;
+                        if (ProfileManager.Instance.GetModule<AP_MConfig>().AllowSandboxing && ProfileManager.Instance.GetModule<AP_MConfig>().OverrideSpawnDifficulty) difficulty = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnDifficulty;
+                        float num3 = Maths.NormalProbability(difficulty, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance;
                         return (double)num3;
                     });
 

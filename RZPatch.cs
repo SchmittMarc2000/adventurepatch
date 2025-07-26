@@ -13,6 +13,7 @@ using BrilliantSkies.Ftd.Planets.Instances;
 using BrilliantSkies.Common.StatusChecking;
 using BrilliantSkies.Core.Timing;
 using BrilliantSkies.PlayerProfiles;
+using BrilliantSkies.Core.Logger;
 namespace AdventurePatch
 {
     
@@ -26,7 +27,8 @@ namespace AdventurePatch
             //ModSettings settings;
             //settings = ModSettings.Reload();
             //if (!settings.ResourceZoneDiffScaling) { return true; }
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneDiffScaling) { return true; }
+            AdvLogger.LogInfo("prefix for commonspawnrzpatch called.");
+            if (!ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneDiffScaling) { return true; }
             int materialGrowthMin = WorldSpecification.i.AdventureModeSettings.MaterialGrowthMin;
             int materialGrowthMax = WorldSpecification.i.AdventureModeSettings.MaterialGrowthMax;
             int rzradiusMin = WorldSpecification.i.AdventureModeSettings.RZRadiusMin;
