@@ -1,12 +1,24 @@
-﻿using BrilliantSkies.Core.Timing;
+﻿using BrilliantSkies.Core.Logger;
+using BrilliantSkies.Core.Timing;
+using BrilliantSkies.Core.Widgets;
+using BrilliantSkies.Ftd.Planets.Factions;
+using BrilliantSkies.Ftd.Planets.Factions.Designs;
+using BrilliantSkies.Modding;
+using BrilliantSkies.Modding.Helper;
+using HarmonyLib;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
-using BrilliantSkies.Modding;
-using HarmonyLib;
-using BrilliantSkies.Modding.Helper;
-using System;
-using System.IO;
-using BrilliantSkies.Core.Logger;
+
+
+using BrilliantSkies.Ftd.Planets.Instances;
+using BrilliantSkies.Ftd.Planets.Instances.Factions;
+using BrilliantSkies.Ftd.Terrain;
+using BrilliantSkies.PlayerProfiles;
+using BrilliantSkies.Ui.Tips;
+using System.Linq;
 
 
 namespace AdventurePatch { 
@@ -26,7 +38,8 @@ namespace AdventurePatch {
             //ModSettings settings = ModSettings.LoadSettings();
             Harmony HarmonyPatches = new Harmony("Adventurepatch");
             HarmonyPatches.PatchAll();
-            
+
+
         }
         public void OnStart()
         {

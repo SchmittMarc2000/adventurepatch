@@ -16,13 +16,17 @@ namespace AdventurePatch
 
         public static void Postfix(ITimeStep dt)
         {
-            timeSinceLastSpawn += dt.DeltaTime;
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns && timeSinceLastSpawn >= ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDelay)
+            if(ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns)
             {
-                AdvLogger.LogInfo("Spawning a force due to ForceEnemySpawns setting.");
-                timeSinceLastSpawn = 0f;
-                AdventureModeProgression.SpawnAForce();
+                timeSinceLastSpawn += dt.DeltaTime;
+                if (timeSinceLastSpawn >= ProfileManager.Instance.GetModule<AP_MConfig>().EnemySpawnDelay)
+                {
+                    AdvLogger.LogInfo("Spawning a force due to ForceEnemySpawns setting.");
+                    timeSinceLastSpawn = 0f;
+                    AdventureModeProgression.SpawnAForce();
+                }
             }
+            
         }
 
     }
