@@ -6,7 +6,7 @@ This mod for the game From the Depths adds several improvements and new features
 -Customizing the adventure bell’s cooldown and allowing it to ignore altitude
 -Changing the difficulty of all spawned enemies
 -Forcing enemy spawns (also with a timer, which might be handy for challenge runs!)
--Custom Encounters, which replace a normal spawn and send one of the various challanges towards you!
+-Custom Encounters, which replace a normal spawn and sends one of the various challanges towards you!
 
 -Sandboxing options, made for debugging and testing purposes, which include:
 Sending you through a Blue/Red/Green Portal
