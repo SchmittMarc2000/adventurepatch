@@ -21,3 +21,22 @@ Multiplayer is supported as long as the host has the mod installed. For clients 
 Feedback and feature suggestions are always appreciated!
 
 Thanks to Melezhor for helping me with tests and Rinathunderpanzer for helping me figure out how to move the settings into ftd options
+
+Custom Encounters(subject to change, looking for feedback!)
+
+| Name                   | Enemies                               | Min Difficulty |
+|------------------------|----------------------------------------|----------------|
+| Small fleet of ships   | Two ships of the same faction          | —              |
+| Sub, Boat and Plane    | Submarine, Ship, Flying, same faction  | 20             |
+| Airforce               | Two flying enemies of the same faction | —              |
+| Crossbones & Tarpon    | Tarpon, Crossbones                     | 60             |
+| Turtle Twin            | Timid, Gravitas                        | 80             |
+| Greenfields            | 3x Greenfield                          | 30             |
+| Eyrie + Bulwark        | Eyrie, Bulwark, Bulwark                | 80             |
+| Double Retaliation     | Retaliator, Retaliator                 | 85             |
+| Cannon fodder          | 4x Marauder                            | 20             |
+| Scorched Earth         | 5x ICBM(Nuke)                          | 60             |
+| Missile Threat         | Smoker, Duster                         | 1              |
+| Double Trouble         | Sunfish, Swordfish                     | 20             |
+| DWG Threats            | Shrike, Scuttlegun                     | 15             |
+| Good Luck with those   | Buzzsaw, Pulverizer                    | 25             |
