@@ -56,7 +56,7 @@ namespace AdventurePatch {
 
         public Version version
         {
-            get { return new Version(1, 0, 4); }
+            get { return new Version(1, 0, 5); }
         }
     }
 }

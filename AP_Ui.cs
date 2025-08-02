@@ -103,12 +103,31 @@ namespace AdventurePatch
                     return;
             }
         }
+
+
         private void spawnResourceZone()
         {
             if (InstanceSpecification.i.Header.IsAdventure)
             {
-                Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
-                AdventureModeProgression.Common_SpawnRz(position, 29990f);
+                if(!Net.IsServer)           //if we are not a host, we can just use the non-synced version
+                {
+                    Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
+                    AdventureModeProgression.Common_SpawnRz(position, 29990f);
+                    return;
+                }
+                var method = typeof(AdventureModeProgression).GetMethod(
+                    "SpawnAnRz",
+                    System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic
+                );
+
+                if (method != null)
+                {
+                    method.Invoke(null, null);
+                }
+                else
+                {
+                    AdvLogger.LogInfo("Could not find method AdventureModeProgression.SpawnAnRz.");
+                }
             }
             else
             {
@@ -180,8 +199,8 @@ namespace AdventurePatch
             resourceBellSettings.SetConditionalDisplay(() => !Net.IsClient);
 
             resourceBellSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
-                "Difficulty-based resource zone scaling",
-                "Enable scaling of resource zone material amounts based on warpdifficulty.",
+                "Resource zone modifications",
+                "Enable scaling of resource zone material amounts based on warpdifficulty and modification of the base value.",
                 (AP_MConfig I, bool b) => I.ResourceZoneDiffScaling = b,
                 (AP_MConfig I) => I.ResourceZoneDiffScaling));
 
@@ -190,13 +209,13 @@ namespace AdventurePatch
                 "Resource Zone base material amount",
                 (AP_MConfig I, float f) => I.ResourceZoneBaseMaterial = (int)f,
                 new ToolTip("The base materials for a resource zone. Setting this to 0 will stop them from spawning entirely.")));
-
+            resSlider0.SetConditionalDisplayFunction(() => _focus.ResourceZoneDiffScaling);
             var resSlider1 = resourceBellSettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 1, 1800, 30f, 900f,
                 M.m((AP_MConfig I) => I.ResourceZoneClampedDrainTime),
                 "Resource Zone drain time clamp (seconds)",
                 (AP_MConfig I, float f) => I.ResourceZoneClampedDrainTime = (int)f,
                 new ToolTip("Spawned Resource zones gain increased material generation rates and will take at least this long to drain entirely.")));
-
+            resSlider1.SetConditionalDisplayFunction(() => _focus.ResourceZoneDiffScaling);
             var resSlider2 = resourceBellSettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 2000, 50f, 500f,
                 M.m((AP_MConfig I) => I.BonusMaterialPerDifficultyLevel),
                 "Resource zone bonus materials per difficulty level",

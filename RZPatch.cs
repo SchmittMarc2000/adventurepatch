@@ -30,6 +30,10 @@ namespace AdventurePatch
                 AdvLogger.LogInfo("ResourceZoneBaseMaterial is set to 0, skipping resource zone creation.");
                 return false;
             }
+            if (!ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneDiffScaling)
+            {
+                return true;
+            }
             int materialGrowthMin = WorldSpecification.i.AdventureModeSettings.MaterialGrowthMin;
             int materialGrowthMax = WorldSpecification.i.AdventureModeSettings.MaterialGrowthMax;
             int rzradiusMin = WorldSpecification.i.AdventureModeSettings.RZRadiusMin;
@@ -38,11 +42,9 @@ namespace AdventurePatch
             resourceZone.MakeAResourceZoneIfWeDontHaveOne();
             uint clamptime = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneClampedDrainTime;
             float bonusMaterialPerDifficultyLevel = ProfileManager.Instance.GetModule<AP_MConfig>().BonusMaterialPerDifficultyLevel;
-            if (!ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneDiffScaling) {
-                bonusMaterialPerDifficultyLevel = 0; 
-            }
-            resourceZone.MapResourceZone.Material.ReserveAmount = Mathf.Max((InstanceSpecification.i.Adventure.WarpPlaneDifficulty * bonusMaterialPerDifficultyLevel + ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneBaseMaterial), materialAmount);
-            resourceZone.MapResourceZone.Material.Maximum = (float)Math.Ceiling(resourceZone.MapResourceZone.Material.ReserveAmount / 50000) * 10000;
+            
+            resourceZone.MapResourceZone.Material.ReserveAmount = Mathf.Max(UnityEngine.Random.Range(1f, 1.25f) * (InstanceSpecification.i.Adventure.WarpPlaneDifficulty * bonusMaterialPerDifficultyLevel + ProfileManager.Instance.GetModule<AP_MConfig>().ResourceZoneBaseMaterial), materialAmount);
+            //resourceZone.MapResourceZone.Material.Maximum = (float)Math.Ceiling(resourceZone.MapResourceZone.Material.ReserveAmount / 50000) * 10000; should not do that, it causes desnycs in mutliplayer since this isnt transfered to clients.
             if (clamptime == 0) clamptime = 1;
             int num = (int)Mathf.Max((float)(resourceZone.MapResourceZone.Material.ReserveAmount / (float)clamptime), Aux.Rnd.Next(materialGrowthMin, materialGrowthMax));
             resourceZone.MapResourceZone.Material.Growth = (float)num;

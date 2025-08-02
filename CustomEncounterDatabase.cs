@@ -182,7 +182,7 @@ namespace AdventurePatch
                     new CustomEncounterEnemy(EnemyType.All,"Shrike"),
                     new CustomEncounterEnemy(EnemyType.All,"Scuttlegun"),
                 },
-                mindifficulty: 15,
+                mindifficulty: 10,
                 forcesamefaction: false,
                 filterduplicates: false,
                 primary: 1f,

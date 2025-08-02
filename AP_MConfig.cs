@@ -18,7 +18,7 @@ namespace AdventurePatch
             public float MinimumSpawnrange { get; set; } = 2000f;
             public bool ResourceZoneDiffScaling { get; set; } = true;
             public int ResourceZoneClampedDrainTime { get; set; } = 900;
-            public int ResourceZoneBaseMaterial { get; set; } = 40000;
+            public int ResourceZoneBaseMaterial { get; set; } = 30000;
             public float BonusMaterialPerDifficultyLevel { get; set; } = 500f;
             public bool SpawnFortress { get; set; } = false;
             public bool IgnoreAltitude { get; set; } = true;

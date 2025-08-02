@@ -141,7 +141,7 @@ namespace AdventurePatch
                             {
                                 if (encounter.Enemies[i].Name != "not set")
                                 {
-                                    if (t.Name != encounter.Enemies[i].Name) return 0.0f;                                       //filter out enemies that do not match
+                                    if (!t.Name.Contains(encounter.Enemies[i].Name)) return 0.0f; // use substring match instead of exact match
                                 }
                                 if (faction != null && (t.CorporationID != faction && encounter.ForceSameFaction == true) || (enemynames.Contains(t.Name) && encounter.FilterDuplicates)) {
                                     //AdvLogger.LogInfo("did not spawn enemy due to wrong faction or duplicate: " + t.Name + " faction: " + t.CorporationID.ToString());
@@ -155,6 +155,7 @@ namespace AdventurePatch
                                 float difficulty = InstanceSpecification.i.Adventure.WarpPlaneDifficulty;
                                 difficulty = Math.Min(100, Math.Max(1, difficultyfactor * difficulty));
                                 if (Math.Abs(difficulty - t.AdventureModeDifficultyMean) > 15f && encounter.MinDifficutly == 0) return 0.0f;
+                                AdvLogger.LogInfo("Added enemy to selection: " + t.Name + " difficulty: " + t.AdventureModeDifficultyMean + " type: " + t.BlueprintType.ToString() + " faction: " + t.CorporationID.ToString());
                                 float num3 = Maths.NormalProbability(difficulty, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance;
                                 return (double)num3;
                             });
