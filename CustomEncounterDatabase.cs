@@ -78,14 +78,14 @@ namespace AdventurePatch
                 dropoff: 0f
             ),
             new CustomEncounter(
-                name: "Greenfields",
+                name: "Sailing away",
                 enemies: new List<CustomEncounterEnemy>
                 {
                     new CustomEncounterEnemy(EnemyType.All,"Greenfield"),
-                    new CustomEncounterEnemy(EnemyType.All,"Greenfield"),
-                    new CustomEncounterEnemy(EnemyType.All,"Greenfield"),
+                    new CustomEncounterEnemy(EnemyType.All,"Nightingale"),
+                    new CustomEncounterEnemy(EnemyType.All,"Lunette"),
                 },
-                mindifficulty: 30,
+                mindifficulty: 25,
                 forcesamefaction: false,
                 filterduplicates: false,
                 primary: 1f,
@@ -201,6 +201,102 @@ namespace AdventurePatch
                 primary: 1f,
                 dropoff: 0f
             ),
+            new CustomEncounter(
+                name: "Utter Carnage",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Velocity"),
+                    new CustomEncounterEnemy(EnemyType.All,"Carnage"),
+                },
+                mindifficulty: 30,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "Galaxies Clashing",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Galaxy"),
+                    new CustomEncounterEnemy(EnemyType.All,"Galaxy"),
+                },
+                mindifficulty: 40,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "Three times the charm",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Pequod"),
+                    new CustomEncounterEnemy(EnemyType.All,"Loggerhead"),
+                    new CustomEncounterEnemy(EnemyType.All,"Shrike"),
+                },
+                mindifficulty: 30,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "OW Triple threats",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Rook"),
+                    new CustomEncounterEnemy(EnemyType.All,"Huskarl"),
+                    new CustomEncounterEnemy(EnemyType.All,"Catapult"),
+                },
+                mindifficulty: 30,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "Striders of steel",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Tyr"),
+                    new CustomEncounterEnemy(EnemyType.All,"Stralsund"),
+                },
+                mindifficulty: 80,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "Beast Swarm",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Curiosity"),
+                    new CustomEncounterEnemy(EnemyType.All,"Curiosity"),
+                    new CustomEncounterEnemy(EnemyType.All,"Vengeful"),
+                    new CustomEncounterEnemy(EnemyType.All,"Spite"),
+                },
+                mindifficulty: 80,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+            new CustomEncounter(
+                name: "Ships of War",
+                enemies: new List<CustomEncounterEnemy>
+                {
+                    new CustomEncounterEnemy(EnemyType.All,"Balmung"),
+                    new CustomEncounterEnemy(EnemyType.All,"Nothung"),
+                },
+                mindifficulty: 50,
+                forcesamefaction: false,
+                filterduplicates: false,
+                primary: 1f,
+                dropoff: 0f
+            ),
+
 
         };
         }

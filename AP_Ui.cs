@@ -38,6 +38,7 @@ using System.Collections.Generic;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text;
@@ -109,25 +110,16 @@ namespace AdventurePatch
         {
             if (InstanceSpecification.i.Header.IsAdventure)
             {
-                if(!Net.IsServer)           //if we are not a host, we can just use the non-synced version
-                {
-                    Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
-                    AdventureModeProgression.Common_SpawnRz(position, 29990f);
-                    return;
-                }
-                var method = typeof(AdventureModeProgression).GetMethod(
+                Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
+                var spawnAnRzMethod = typeof(AdventureModeProgression).GetMethod(
                     "SpawnAnRz",
-                    System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic
+                    BindingFlags.NonPublic | BindingFlags.Static
                 );
 
-                if (method != null)
+                if (spawnAnRzMethod != null)
                 {
-                    method.Invoke(null, null);
-                }
-                else
-                {
-                    AdvLogger.LogInfo("Could not find method AdventureModeProgression.SpawnAnRz.");
-                }
+                    spawnAnRzMethod.Invoke(null, null); // no parameters
+                };
             }
             else
             {
