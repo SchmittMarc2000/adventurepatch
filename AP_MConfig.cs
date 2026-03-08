@@ -32,6 +32,12 @@ namespace AdventurePatch
             public uint MaxEnemyCount { get; set; } = 30;
             public bool EnableCustomEncounters { get; set; } = false;
             public uint CustomEncounterSpawnChance { get; set; } = 20;
+            public bool IgnoreHeartstone { get; set; } = false;
+            public bool AllowFreeze { get; set; } = false;
+            public bool PreventDamage { get; set; } = false;
+            public bool AllowEnemySpawnUI { get; set; } = false;
+            public float EnemyDropPercentage { get; set; } = 10f;
+            //public bool EnemyDropChanges { get; set; } = false;
 
         }
         public override ModuleType ModuleType => ModuleType.Options;
@@ -56,6 +62,12 @@ namespace AdventurePatch
         public uint MaxEnemyCount { get => Internal.MaxEnemyCount; set => Internal.MaxEnemyCount = value; }
         public bool EnableCustomEncounters { get => Internal.EnableCustomEncounters; set => Internal.EnableCustomEncounters = value; }
         public uint CustomEncounterSpawnChance { get => Internal.CustomEncounterSpawnChance; set => Internal.CustomEncounterSpawnChance = value; }
+        public bool IgnoreHeartstone { get => Internal.IgnoreHeartstone; set => Internal.IgnoreHeartstone = value; }
+        public bool AllowFreeze { get => Internal.AllowFreeze; set => Internal.AllowFreeze = value; }
+        public bool PreventDamage { get => Internal.PreventDamage; set => Internal.PreventDamage = value; }
+        public bool AllowEnemySpawnUI { get => Internal.AllowEnemySpawnUI; set => Internal.AllowEnemySpawnUI = value; }
+        public float EnemyDropPercentage { get => Internal.EnemyDropPercentage; set => Internal.EnemyDropPercentage = value; }
+        //public bool EnemyDropChanges { get => Internal.EnemyDropChanges; set => Internal.EnemyDropChanges = value; }
 
     }
 }

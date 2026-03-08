@@ -154,9 +154,9 @@ namespace AdventurePatch
             ScreenSegmentTable gameplaySettings = CreateTableSegment(3, 2);
             gameplaySettings.SqueezeTable = false;
             gameplaySettings.NameWhereApplicable = "General Settings";
-            gameplaySettings.SpaceBelow = 20f;
+            gameplaySettings.SpaceBelow = 40f;
             gameplaySettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
-            gameplaySettings.SetConditionalDisplay(() => !Net.IsClient);
+            //gameplaySettings.SetConditionalDisplay(() => !Net.IsClient); Disallow rendering when joining multiplier as client
             AdvLogger.LogInfo("Building Adventurepatch options screen");
 
             // General toggles
@@ -177,6 +177,25 @@ namespace AdventurePatch
                 (AP_MConfig I) => I.SpawnFortress));
 
             gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Ignore Heartstones",
+                "Allows shooting and surviving without Heartstone",
+                (AP_MConfig I, bool b) => I.IgnoreHeartstone = b,
+                (AP_MConfig I) => I.IgnoreHeartstone));
+
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Allow Freezing in all modes",
+                "Allows caps lock freeze of vehicles outside of designer mode",
+                (AP_MConfig I, bool b) => I.AllowFreeze = b,
+                (AP_MConfig I) => I.AllowFreeze));
+
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Allow god mode for the Player",
+                "The player will no longer take damage.",
+                (AP_MConfig I, bool b) => I.PreventDamage = b,
+                (AP_MConfig I) => I.PreventDamage));
+
+
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
                 "Enable Custom encounters",
                 "Enable Custom encounters, which are random enemy spawn events.",
                 (AP_MConfig I, bool b) => I.EnableCustomEncounters = b,
@@ -186,7 +205,7 @@ namespace AdventurePatch
             ScreenSegmentTable resourceBellSettings = CreateTableSegment(3, 2);
             resourceBellSettings.SqueezeTable = false;
             resourceBellSettings.NameWhereApplicable = "Resource Zone Settings";
-            resourceBellSettings.SpaceBelow = 20f;
+            resourceBellSettings.SpaceBelow = 40f;
             resourceBellSettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             resourceBellSettings.SetConditionalDisplay(() => !Net.IsClient);
 
@@ -219,7 +238,7 @@ namespace AdventurePatch
             ScreenSegmentTable bellSettings = CreateTableSegment(3, 2);
             bellSettings.SqueezeTable = false;
             bellSettings.NameWhereApplicable = "Adventure Bell Settings";
-            bellSettings.SpaceBelow = 20f;
+            bellSettings.SpaceBelow = 40f;
             bellSettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             bellSettings.SetConditionalDisplay(() => !Net.IsClient);
             bellSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
@@ -237,7 +256,7 @@ namespace AdventurePatch
             ScreenSegmentTable customEncounters = CreateTableSegment(3, 2);
             customEncounters.SqueezeTable = false;
             customEncounters.NameWhereApplicable = "Custom Encounter Settings";
-            customEncounters.SpaceBelow = 20f;
+            customEncounters.SpaceBelow = 40f;
             customEncounters.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             customEncounters.SetConditionalDisplay(() => !Net.IsClient && _focus.EnableCustomEncounters);
 
@@ -252,20 +271,28 @@ namespace AdventurePatch
             ScreenSegmentTable enemySection = CreateTableSegment(2, 15);
             enemySection.SqueezeTable = false;
             enemySection.NameWhereApplicable = "Enemy Spawn Settings";
-            enemySection.SpaceBelow = 20f;
+            enemySection.SpaceBelow = 40f;
             enemySection.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
 
-            //enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 10000, 250000, 5000, 30000,
-            //    M.m((AP_MConfig I) => I.MaxEnemyVolume),
-            //    "Maximum enemy volume",
-            //    (AP_MConfig I, float f) => I.MaxEnemyVolume = (uint)f,
-            //    new ToolTip("If the combined volume of all enemies exceeds this value, no new enemies will be spawned.")));
+            enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 10000, 250000, 5000, 30000,
+                M.m((AP_MConfig I) => I.MaxEnemyVolume),
+                "Maximum enemy volume",
+                (AP_MConfig I, float f) => I.MaxEnemyVolume = (uint)f,
+                new ToolTip("If the combined volume of all enemies exceeds this value, no new enemies will be spawned.")));
 
-            //enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 5, 100, 5, 10,
-            //    M.m((AP_MConfig I) => I.MaxEnemyCount),
-            //    "Maximum number of enemies",
-            //    (AP_MConfig I, float f) => I.MaxEnemyCount = (uint)f,
-            //    new ToolTip("If the total number of enemies reaches this limit, no additional enemies will be spawned.")));
+            enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 5, 100, 5, 10,
+                M.m((AP_MConfig I) => I.MaxEnemyCount),
+                "Maximum number of enemies",
+                (AP_MConfig I, float f) => I.MaxEnemyCount = (uint)f,
+                new ToolTip("If the total number of enemies reaches this limit, no additional enemies will be spawned.")));
+
+            
+
+            enemySection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Block enemy spawns",
+                "Blocks naturally occuring enemy spawns. the adventurebell and forced spawns still work.",
+                (AP_MConfig I, bool b) => I.BlockRandomSpawns = b,
+                (AP_MConfig I) => I.BlockRandomSpawns));
 
             enemySection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
                 "Force enemy spawns",
@@ -280,31 +307,12 @@ namespace AdventurePatch
                 new ToolTip("Time between spawns in seconds.")));
             forceSpawnDelaySlider.SetConditionalDisplayFunction(() => _focus.ForceEnemySpawns);
 
-            enemySection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
-                "Override Difficulty with custom slider value",
-                "Spawning enemies will use the custom value instead of the warp difficulty.",
-                (AP_MConfig I, bool b) => I.OverrideSpawnDifficulty = b,
-                (AP_MConfig I) => I.OverrideSpawnDifficulty));
 
-            var difficultySlider = enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 100, 5, 50,
-                M.m((AP_MConfig I) => I.SpawnDifficulty),
-                "Enemy Spawn difficulty",
-                (AP_MConfig I, float f) => I.SpawnDifficulty = (int)f,
-                new ToolTip("Spawned enemies will spawn according to this difficulty instead.")));
-            difficultySlider.SetConditionalDisplayFunction(() => _focus.OverrideSpawnDifficulty);
-
-            enemySection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
-                "Block enemy spawns",
-                "Blocks naturally occuring enemy spawns. the adventurebell and forced spawns still work.",
-                (AP_MConfig I, bool b) => I.BlockRandomSpawns = b,
-                (AP_MConfig I) => I.BlockRandomSpawns));
-
-            
 
             ScreenSegmentTable distSection = CreateTableSegment(3, 15);
             distSection.SqueezeTable = false;
             distSection.NameWhereApplicable = "Spawning Distance Settings";
-            distSection.SpaceBelow = 20f;
+            distSection.SpaceBelow = 40f;
             distSection.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
 
             distSection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
@@ -313,7 +321,7 @@ namespace AdventurePatch
                 (AP_MConfig I, bool b) => I.EnemySpawnDistancePatch = b,
                 (AP_MConfig I) => I.EnemySpawnDistancePatch));
 
-            // Engagement range settings (conditionally visible)
+            // Engagement range settings
             var bonusDistanceSlider = distSection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 1, 5000, 50f, 500f,
                 M.m((AP_MConfig I) => I.SpawnBonusDistance),
                 "Engagement range bonus distance",
@@ -329,11 +337,57 @@ namespace AdventurePatch
             minSpawnSlider.SetConditionalDisplayFunction(() => _focus.EnemySpawnDistancePatch);
 
 
+            //Difficulty settings
+            ScreenSegmentTable diffSection = CreateTableSegment(3, 15);
+            diffSection.SqueezeTable = false;
+            diffSection.NameWhereApplicable = "Difficulty related settings";
+            diffSection.SpaceBelow = 40f;
+            diffSection.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
+
+            //diffSection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+            //"Change Resource Drop amounts",
+            //"Allows changing the returned materials on kills",
+            //(AP_MConfig I, bool b) =>
+            //{
+            //    I.EnemyDropChanges = b;
+            //    EnemyDropManager.ApplyEnemyDropSettings();
+            //},
+            //(AP_MConfig I) => I.EnemyDropChanges));
+
+            var harvestAmountSlider = diffSection.AddInterpretter(
+                SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(
+                    _focus, 0, 100, 1f, 10f,
+                    M.m((AP_MConfig I) => I.EnemyDropPercentage),
+                    "Enemy resource drop percentage",
+                    (AP_MConfig I, float f) =>
+                    {
+                        I.EnemyDropPercentage = f;
+                        EnemyDropManager.ApplyEnemyDropSettings();
+                    },
+                    new ToolTip("Changes the percentage of dropped resources on kills.")
+                )
+            );
+            //harvestAmountSlider.SetConditionalDisplayFunction(() => _focus.EnemyDropChanges);
+
+            diffSection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Override Difficulty with custom slider value",
+                "Spawning enemies will use the custom value instead of the warp difficulty.",
+                (AP_MConfig I, bool b) => I.OverrideSpawnDifficulty = b,
+                (AP_MConfig I) => I.OverrideSpawnDifficulty));
+
+            var difficultySlider = diffSection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 100, 5, 50,
+                M.m((AP_MConfig I) => I.SpawnDifficulty),
+                "Enemy Spawn difficulty",
+                (AP_MConfig I, float f) => I.SpawnDifficulty = (int)f,
+                new ToolTip("Spawned enemies will spawn according to this difficulty instead.")));
+            difficultySlider.SetConditionalDisplayFunction(() => _focus.OverrideSpawnDifficulty);
+
+
             // Sandbox buttons
             ScreenSegmentTable sandBoxSettings = CreateTableSegment(3, 15);
             sandBoxSettings.SqueezeTable = false;
             sandBoxSettings.NameWhereApplicable = "Sandboxing Section";
-            sandBoxSettings.SpaceBelow = 20f;
+            sandBoxSettings.SpaceBelow = 40f;
             sandBoxSettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             sandBoxSettings.SetConditionalDisplay(() => _focus.AllowSandboxing && !Net.IsClient);
 
@@ -343,7 +397,13 @@ namespace AdventurePatch
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Spawn a Resource Zone", new ToolTip("This button will spawn a resource zone ontop of the main craft."), (AP_MConfig I) => spawnResourceZone()));
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Spawn an Enemy", new ToolTip("This button will instantly spawn an enemy."), (AP_MConfig I) => spawnEnemy()));
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Destroy all Enemies", new ToolTip("This button will instantly remove all enemies."), (AP_MConfig I) => destroyEnemies()));
-            
+
+            sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Allow enemy spawning menu",
+                "Allows the x-menu to open in all game modes",
+                (AP_MConfig I, bool b) => I.AllowEnemySpawnUI = b,
+                (AP_MConfig I) => I.AllowEnemySpawnUI));
+
             AdvLogger.LogInfo("Adventurepatch options screen built successfully");
 
 

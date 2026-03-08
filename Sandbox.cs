@@ -32,10 +32,10 @@ namespace AdventurePatch
                     AdvLogger.LogInfo("PotentiallySpawnForce blocked due to BlockRandomSpawns setting.");
                 }
 
-                return false; // Skip original method
+                return false;
             }
 
-            return true; // Continue with original method
+            return true;
         }
     }
 
