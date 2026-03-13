@@ -9,12 +9,8 @@ namespace AdventurePatch
 {
     public static class CustomEncounterDatabase
     {
-        // Static readonly field initialized once when the class is loaded
         private static readonly List<CustomEncounter> _encounters = CreateEncounters();
-
-        // Public accessor
         public static IReadOnlyList<CustomEncounter> Encounters => _encounters;
-
         private static List<CustomEncounter> CreateEncounters()
         {
             return new List<CustomEncounter>
@@ -308,7 +304,7 @@ namespace AdventurePatch
 
             // Filter valid encounters
             var validEncounters = _encounters
-                .Where(e => e.MinDifficutly <= adventureDifficulty && (adventureDifficulty - e.MinDifficutly) <= 15)
+                .Where(e => e.MinDifficulty <= adventureDifficulty && (adventureDifficulty - e.MinDifficulty) <= 15)
                 .ToList();
 
             if (validEncounters.Count == 0)

@@ -30,12 +30,12 @@ namespace AdventurePatch
                     InstanceSpecification.i.Adventure.RequestedSpawnTimeInt = now + delayInSeconds;
                     InstanceSpecification.i.Adventure.LastBellRingTimeInt = now;
                     __result = true;
-                    return false; // Skip original
+                    return false;
                 }
             }
 
             __result = false;
-            return false; // Skip original
+            return false; 
         }
     }
     [HarmonyPatch(typeof(AdventureBell))]
@@ -48,7 +48,6 @@ namespace AdventurePatch
             //settings = ModSettings.Reload();
             uint num = (uint)GameTimer.Instance.GameTime;
             float deltatime = (num - InstanceSpecification.i.Adventure.LastBellRingTimeInt);
-            //float remainder = settings.AdventureBellDelay - deltatime;
             uint belldelay = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().AdventureBellDelay;
             float remainder = belldelay - deltatime;
             if (deltatime > belldelay | (InstanceSpecification.i.Adventure.LastBellRingTimeInt == uint.MaxValue))
@@ -82,20 +81,6 @@ namespace AdventurePatch
             };
 
             return true;
-
-            //float altitude = __instance.AltitudeAboveWaves;
-
-            //if (altitude <= 0f)
-            //{
-            //    //updater.FlagWarning(__instance,
-            //    //AdventureBell._locFile.Format("Tip_BellWaterWarning", "Bell cannot ring underwater", Array.Empty<object>()));
-            //}
-            //if (altitude >= 300f)
-            //{
-            //    //updater.FlagWarning(__instance,
-            //    //AdventureBell._locFile.Format("Tip_BellSpaceWarning", "Bell cannot ring above 300m", Array.Empty<object>()));
-            //}
-            //return false;
         }
     }
     [HarmonyPatch(typeof(AdventureBell))]

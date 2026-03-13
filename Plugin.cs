@@ -38,8 +38,7 @@ namespace AdventurePatch {
             //ModSettings settings = ModSettings.LoadSettings();
             Harmony HarmonyPatches = new Harmony("Adventurepatch");
             HarmonyPatches.PatchAll();
-
-
+            EnemyDropManager.ApplyEnemyDropSettings();
         }
         public void OnStart()
         {

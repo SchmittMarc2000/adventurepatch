@@ -22,10 +22,7 @@ namespace AdventurePatch
             if (InstanceSpecification.i != null && InstanceSpecification.i.Header != null)
             {
                 InstanceSpecification.i.Header.CommonSettings.EnemyBlockDestroyedResourceDrop = percentage * 0.01f;
-            }
-            else
-            {
-                AdvLogger.LogInfo("Failed to modify enemy block drop amount");
+                AdvLogger.LogInfo("Enemy salvage amount has been set to " + InstanceSpecification.i.Header.CommonSettings.EnemyBlockDestroyedResourceDrop.ToString() + "%");
             }
         }
     }

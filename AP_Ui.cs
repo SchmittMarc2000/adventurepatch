@@ -6,6 +6,7 @@ using BrilliantSkies.Core.Types;
 using BrilliantSkies.Core.Types;
 using BrilliantSkies.Core.UiSounds;
 using BrilliantSkies.Ftd.Autosave;
+using BrilliantSkies.Ftd.Constructs.Modules.All.FireDamage;
 using BrilliantSkies.Ftd.Multiplayer.NetworkCommunication;
 using BrilliantSkies.Ftd.Planets;
 using BrilliantSkies.Ftd.Planets.Instances;
@@ -142,6 +143,63 @@ namespace AdventurePatch
             }
         }
 
+        private void repairAllAllied()
+        {
+            // Loop through all constructs
+            for (int i = 0; i < StaticConstructablesManager.Constructables.Count; i++)
+            {
+                MainConstruct mainConstruct = StaticConstructablesManager.Constructables[i];
+
+                // Check if it's an allied construct (same team as player)
+                bool isAllied = mainConstruct != null && mainConstruct.GetTeam() == GAME_STATE.MyTeam;
+
+                if (isAllied)
+                {
+                    // Repair this allied construct
+                    RepairConstruct(mainConstruct);
+                }
+            }
+        }
+
+        private static void RepairConstruct(AllConstruct C)
+        {
+            if (C.State == enumConstructableState.scrapping)
+            {
+                return;
+            }
+
+            // Extinguish all fires
+            for (int num = C.Main.FireRestricted.Fires.Count; num > 0; num--)
+            {
+                Fire fire = C.Main.FireRestricted.Fires[num - 1];
+                fire.FuelInfo.Fuel = 0f;
+            }
+
+            // Repair all blocks
+            List<Block> blocks = C.AllBasics.AliveAndDead.Blocks;
+            for (int num2 = blocks.Count - 1; num2 >= 0; num2--)
+            {
+                Block block = blocks[num2];
+                if (!block.IsAlive)
+                {
+                    block.RepairToBlock();
+                    C.BlockRepairedSoPerformAllActions(block);
+                }
+                else if (block.GetCurrentHealth() != block.MaximumHealth)
+                {
+                    block.SetCurrentHealth(block.MaximumHealth);
+                    block.ChunkStuff.RequestChunkColorOrVisibilityChange();
+                    block.FireDamageFraction = 0f;
+                }
+            }
+
+            // Recursively repair all subconstructs
+            foreach (SubConstruct subConstruct in C.AllBasics.SubConstructList)
+            {
+                RepairConstruct(subConstruct);
+            }
+        }
+
         private void spawnEnemy()
         {
             AdventureModeProgression.SpawnAForce();
@@ -151,7 +209,7 @@ namespace AdventurePatch
         public override Content Name => new Content("Adventurepatch", new ToolTip("The options menu for the Adventurepatches Mod"));
         public override void Build()
         {
-            ScreenSegmentTable gameplaySettings = CreateTableSegment(3, 2);
+            ScreenSegmentTable gameplaySettings = CreateTableSegment(4, 2);
             gameplaySettings.SqueezeTable = false;
             gameplaySettings.NameWhereApplicable = "General Settings";
             gameplaySettings.SpaceBelow = 40f;
@@ -194,12 +252,17 @@ namespace AdventurePatch
                 (AP_MConfig I, bool b) => I.PreventDamage = b,
                 (AP_MConfig I) => I.PreventDamage));
 
-
             gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
                 "Enable Custom encounters",
                 "Enable Custom encounters, which are random enemy spawn events.",
                 (AP_MConfig I, bool b) => I.EnableCustomEncounters = b,
                 (AP_MConfig I) => I.EnableCustomEncounters));
+
+            gameplaySettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "Adjust Losecondition",
+                "You will only lose if all allied craft are downed, not just the main craft.",
+                (AP_MConfig I, bool b) => I.AdjustWincon = b,
+                (AP_MConfig I) => I.AdjustWincon));
 
             // Resource Zone Settings 
             ScreenSegmentTable resourceBellSettings = CreateTableSegment(3, 2);
@@ -266,6 +329,11 @@ namespace AdventurePatch
                 (AP_MConfig I, float f) => I.CustomEncounterSpawnChance = (uint)f,
                 new ToolTip("% Chance to select a custom encounter when spawning enemies.")));
 
+            var spawnDelaySlider = customEncounters.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 1, 10, 0.1f, 2f,
+                M.m((AP_MConfig I) => I.SpawnDelay),
+                "Delay between spawns(s)",
+                (AP_MConfig I, float f) => I.SpawnDelay = (int)f,
+                new ToolTip("Delay between encounter enemy spawns in seconds.")));
 
             // Enemy Settings Section
             ScreenSegmentTable enemySection = CreateTableSegment(2, 15);
@@ -286,8 +354,6 @@ namespace AdventurePatch
                 (AP_MConfig I, float f) => I.MaxEnemyCount = (uint)f,
                 new ToolTip("If the total number of enemies reaches this limit, no additional enemies will be spawned.")));
 
-            
-
             enemySection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
                 "Block enemy spawns",
                 "Blocks naturally occuring enemy spawns. the adventurebell and forced spawns still work.",
@@ -307,6 +373,38 @@ namespace AdventurePatch
                 new ToolTip("Time between spawns in seconds.")));
             forceSpawnDelaySlider.SetConditionalDisplayFunction(() => _focus.ForceEnemySpawns);
 
+            var gracePeriodSlider = enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 60, 1800, 30, 600,
+                M.m((AP_MConfig I) => I.GracePeriod),
+                "Grace period (s)",
+                (AP_MConfig I, float f) =>
+                {
+                    I.GracePeriod = f;
+                    AdventureModeProgression_RunAdventureMode_Patch.updateSettings();
+                 },
+                new ToolTip("Enemies may start spawning after this amount of time has passed")));
+            gracePeriodSlider.SetConditionalDisplayFunction(() => _focus.ForceEnemySpawns);
+
+            var sequenceLengthSlider = enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 0, 50, 1, 10,
+                M.m((AP_MConfig I) => I.maxEnemySpawns),
+                "Enemy spawning sequence length",
+                (AP_MConfig I, float f) =>
+                {
+                    I.maxEnemySpawns = (int)f;
+                    AdventureModeProgression_RunAdventureMode_Patch.updateSettings();
+                },
+                new ToolTip("Number of enemies spawned consecutively(with the delay) until the cooldown sets in. Setting this to 0 will only use the main spawning timer")));
+            sequenceLengthSlider.SetConditionalDisplayFunction(() => _focus.ForceEnemySpawns);
+
+            var cooldownSlider = enemySection.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 60, 1800, 30, 600,
+                M.m((AP_MConfig I) => I.SpawnTimeout),
+                "Cooldown after a spawnwave (s)",
+                (AP_MConfig I, float f) =>
+                {
+                    I.SpawnTimeout = f;
+                    AdventureModeProgression_RunAdventureMode_Patch.updateSettings();
+                },
+                new ToolTip("Length of the cooldown between spawn waves in seconds")));
+            cooldownSlider.SetConditionalDisplayFunction(() => _focus.ForceEnemySpawns);
 
 
             ScreenSegmentTable distSection = CreateTableSegment(3, 15);
@@ -370,7 +468,7 @@ namespace AdventurePatch
             //harvestAmountSlider.SetConditionalDisplayFunction(() => _focus.EnemyDropChanges);
 
             diffSection.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
-                "Override Difficulty with custom slider value",
+                "Override difficulty with custom slider value",
                 "Spawning enemies will use the custom value instead of the warp difficulty.",
                 (AP_MConfig I, bool b) => I.OverrideSpawnDifficulty = b,
                 (AP_MConfig I) => I.OverrideSpawnDifficulty));
@@ -396,7 +494,8 @@ namespace AdventurePatch
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Enter a Red Portal", new ToolTip("This button will send you through a Red Portal."), (AP_MConfig I) => adventureWarp("harder")));
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Spawn a Resource Zone", new ToolTip("This button will spawn a resource zone ontop of the main craft."), (AP_MConfig I) => spawnResourceZone()));
             sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Spawn an Enemy", new ToolTip("This button will instantly spawn an enemy."), (AP_MConfig I) => spawnEnemy()));
-            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Destroy all Enemies", new ToolTip("This button will instantly remove all enemies."), (AP_MConfig I) => destroyEnemies()));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Destroy All Enemies", new ToolTip("This button will instantly remove all enemies."), (AP_MConfig I) => destroyEnemies()));
+            sandBoxSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus, "Repair All Allied Craft", new ToolTip("This button will repair all allied vehicles."), (AP_MConfig I) => repairAllAllied()));
 
             sandBoxSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
                 "Allow enemy spawning menu",

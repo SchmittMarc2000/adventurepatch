@@ -13,7 +13,6 @@ namespace AdventurePatch
     [HarmonyPatch]
     public static class Patch_AdventureModeProgression_PotentiallySpawnForce
     {
-        // Target the correct method
         [HarmonyPrefix]
         [HarmonyPatch(typeof(AdventureModeProgression), "PotentiallySpawnForce")]
         public static bool Prefix_BlockRandomSpawns()

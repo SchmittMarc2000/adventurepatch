@@ -21,7 +21,7 @@ namespace AdventurePatch
 
     //        return true;
     //    }
-    //}
+    //} Did not work out :/
 
     [HarmonyPatch(typeof(sHealth), "Damage")]
     public static class Patch_Damage

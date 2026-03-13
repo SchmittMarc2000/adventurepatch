@@ -37,6 +37,11 @@ namespace AdventurePatch
             public bool PreventDamage { get; set; } = false;
             public bool AllowEnemySpawnUI { get; set; } = false;
             public float EnemyDropPercentage { get; set; } = 10f;
+            public float SpawnDelay { get; set; } = 2f;
+            public float GracePeriod { get; set; } = 600f;
+            public float SpawnTimeout { get; set; } = 600f;
+            public bool AdjustWincon { get; set; } = true;
+            public int maxEnemySpawns { get; set; } = 0;
             //public bool EnemyDropChanges { get; set; } = false;
 
         }
@@ -67,7 +72,12 @@ namespace AdventurePatch
         public bool PreventDamage { get => Internal.PreventDamage; set => Internal.PreventDamage = value; }
         public bool AllowEnemySpawnUI { get => Internal.AllowEnemySpawnUI; set => Internal.AllowEnemySpawnUI = value; }
         public float EnemyDropPercentage { get => Internal.EnemyDropPercentage; set => Internal.EnemyDropPercentage = value; }
+        public float GracePeriod { get => Internal.GracePeriod; set => Internal.GracePeriod = value; }
+        public float SpawnDelay { get => Internal.SpawnDelay; set => Internal.SpawnDelay = value; }
         //public bool EnemyDropChanges { get => Internal.EnemyDropChanges; set => Internal.EnemyDropChanges = value; }
 
+        public bool AdjustWincon { get => Internal.AdjustWincon; set => Internal.AdjustWincon = value; }
+        public float SpawnTimeout { get => Internal.SpawnTimeout; set => Internal.SpawnTimeout = value; }
+        public int maxEnemySpawns { get => Internal.maxEnemySpawns; set => Internal.maxEnemySpawns = value; }
     }
 }

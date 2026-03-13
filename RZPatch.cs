@@ -147,7 +147,6 @@ namespace AdventurePatch
 
             AdventureModeProgression.Common_SpawnRz(universePosition, materialAmount, growthSize, radiusSize);
 
-            // Skip original method entirely
             return false;
         }
     }

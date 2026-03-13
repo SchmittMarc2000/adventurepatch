@@ -81,7 +81,7 @@ namespace AdventurePatch
         /// <summary>
         /// Minimum allowed difficulty value for spawned encounters.
         /// </summary>
-        public float MinDifficutly { get; set; } = 0;
+        public float MinDifficulty { get; set; } = 0;
 
         /// <summary>
         /// Whether to prevent spawning the same design multiple times.
@@ -125,7 +125,7 @@ namespace AdventurePatch
             Enemies = enemies;
             PrimaryDifficultyFactor = primary;
             DifficultyFactorDropoff = dropoff;
-            MinDifficutly = mindifficulty;
+            MinDifficulty = mindifficulty;
             ForceSameFaction = forcesamefaction;
             FilterDuplicates = filterduplicates;
         }

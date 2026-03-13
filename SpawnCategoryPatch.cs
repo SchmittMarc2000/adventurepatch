@@ -17,7 +17,9 @@ namespace AdventurePatch
     {
         static bool Prefix(WorldSpecificationFactionDesign __instance, AdventureType type, ref bool __result)
         {
-            if(!ProfileManager.Instance.GetModule<AP_MConfig>().SpawnFortress) { return true; }
+            if(!ProfileManager.Instance.GetModule<AP_MConfig>().SpawnFortress) {
+                return true; 
+            }
 
             if (__instance.BlueprintType == enumBlueprintType.Installation)
             {
@@ -28,7 +30,7 @@ namespace AdventurePatch
                     __instance.AdventureModeDifficultyMean = (int)Math.Round(0.01648 * Math.Pow(cost, 0.6242));
                     __instance.AdventureModeDifficultySigma = 3;
                     __instance.AdventureModeChance = 5;
-                    //AdvLogger.LogError(string.Format("A unit: \"{0}\" has been added which would previously be excluded. The cost of the unit is: {1} and the difficutly is {2}", name,cost,__instance.AdventureModeDifficultyMean), LogOptions.OnlyInDeveloperLog);
+                    AdvLogger.LogError(string.Format("A unit: \"{0}\" has been added which would previously be excluded. The cost of the unit is: {1} and the difficutly is {2}", name,cost,__instance.AdventureModeDifficultyMean), LogOptions.OnlyInDeveloperLog);
                     __result = true;
                     return false;
                 }
