@@ -90,7 +90,7 @@ namespace AdventurePatch
 
             object[] parameters = new object[]
             {
-            AdventureModeProgression.EnemySpawnDistance(),
+            500f,
             null // placeholder for 'out Quaternion quaternion'
             };
 

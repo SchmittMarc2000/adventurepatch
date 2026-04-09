@@ -29,12 +29,10 @@ namespace AdventurePatch
                     int cost = (int)__instance.MaterialCostToBuild();
                     __instance.AdventureModeDifficultyMean = (int)Math.Round(0.01648 * Math.Pow(cost, 0.6242));
                     __instance.AdventureModeDifficultySigma = 3;
-                    __instance.AdventureModeChance = 5;
-                    AdvLogger.LogError(string.Format("A unit: \"{0}\" has been added which would previously be excluded. The cost of the unit is: {1} and the difficutly is {2}", name,cost,__instance.AdventureModeDifficultyMean), LogOptions.OnlyInDeveloperLog);
+                    __instance.AdventureModeChance = 1;
                     __result = true;
                     return false;
                 }
-                //AdvLogger.LogError(string.Format("A unit: \"{0}\" has not been added:", __instance.Name), LogOptions.OnlyInDeveloperLog);
                 __result = false;
                 return false;
             }

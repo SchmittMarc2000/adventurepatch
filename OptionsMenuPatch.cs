@@ -16,9 +16,14 @@ namespace AdventurePatch
     {
         [HarmonyPatch("BuildInterface")]
         [HarmonyPostfix]
+        //static void BuildInterface(ref ConsoleWindow __result)
+        //{
+        //    __result.AllScreens.Add(new AP_Ui(__result, ProfileManager.Instance.GetModule<AP_MConfig>()));
+        //} without the quicksavegui
         static void BuildInterface(ref ConsoleWindow __result)
         {
             __result.AllScreens.Add(new AP_Ui(__result, ProfileManager.Instance.GetModule<AP_MConfig>()));
+            __result.AllScreens.Add(new QuickSaveUi(__result, ProfileManager.Instance.GetModule<AP_MConfig>()));
         }
     }
 }

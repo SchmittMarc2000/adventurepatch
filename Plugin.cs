@@ -35,10 +35,12 @@ namespace AdventurePatch {
             }
             string ModPath = text;
             ModProblems.AddModProblem($"Adventurepatch active, version {version}", ModPath, string.Empty, false);
-            //ModSettings settings = ModSettings.LoadSettings();
             Harmony HarmonyPatches = new Harmony("Adventurepatch");
             HarmonyPatches.PatchAll();
             EnemyDropManager.ApplyEnemyDropSettings();
+            AdventureModeProgression_RunAdventureMode_Patch.updateSettings();
+            CustomBindingManager.Initialize();
+            CustomBindingManager.Update();
         }
         public void OnStart()
         {
@@ -55,7 +57,7 @@ namespace AdventurePatch {
 
         public Version version
         {
-            get { return new Version(1, 0, 6); }
+            get { return new Version(2, 0, 0); }
         }
     }
 }

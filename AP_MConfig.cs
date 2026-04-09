@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace AdventurePatch
 {
@@ -32,16 +33,31 @@ namespace AdventurePatch
             public uint MaxEnemyCount { get; set; } = 30;
             public bool EnableCustomEncounters { get; set; } = false;
             public uint CustomEncounterSpawnChance { get; set; } = 20;
-            public bool IgnoreHeartstone { get; set; } = false;
-            public bool AllowFreeze { get; set; } = false;
-            public bool PreventDamage { get; set; } = false;
+            public bool IgnoreHeartstone { get; set; } = true;
+            public bool AllowFreeze { get; set; } = true;
+            public bool PreventDamage { get; set; } = true;
             public bool AllowEnemySpawnUI { get; set; } = false;
             public float EnemyDropPercentage { get; set; } = 10f;
             public float SpawnDelay { get; set; } = 2f;
             public float GracePeriod { get; set; } = 600f;
             public float SpawnTimeout { get; set; } = 600f;
             public bool AdjustWincon { get; set; } = true;
+            public bool MaterialScaling { get; set; } = false;
+            public int ScalingOffset {  get; set; } = -5;
             public int maxEnemySpawns { get; set; } = 0;
+            public bool waveMode { get; set; } = false;
+
+            public bool challengeMode { get; set; } = false;
+            public float waveDuration { get; set; } = 360f;
+            public float spawnDelay { get; set; } = 15f;
+            public int difficultyLevel { get; set; } = 0;
+            public bool autoIncreaseDifficulty { get; set; } = true;
+            public float autoIncreaseTime { get; set; } = 30f;
+
+            public int bonusStartingMaterial { get; set; } = 0;
+            public KeyCode StartWaveKey { get; set; } = KeyCode.Return;
+            public KeyCode StopWaveKey { get; set; } = (KeyCode)289;
+
             //public bool EnemyDropChanges { get; set; } = false;
 
         }
@@ -77,7 +93,23 @@ namespace AdventurePatch
         //public bool EnemyDropChanges { get => Internal.EnemyDropChanges; set => Internal.EnemyDropChanges = value; }
 
         public bool AdjustWincon { get => Internal.AdjustWincon; set => Internal.AdjustWincon = value; }
+        public bool MaterialScaling { get => Internal.MaterialScaling; set => Internal.MaterialScaling = value; }
+        public int ScalingOffset { get => Internal.ScalingOffset; set => Internal.ScalingOffset = value; }
         public float SpawnTimeout { get => Internal.SpawnTimeout; set => Internal.SpawnTimeout = value; }
         public int maxEnemySpawns { get => Internal.maxEnemySpawns; set => Internal.maxEnemySpawns = value; }
+
+        public bool waveMode { get => Internal.waveMode; set => Internal.waveMode = value; }
+        public bool challengeMode { get => Internal.challengeMode; set => Internal.challengeMode = value; }
+        public float waveDuration { get => Internal.waveDuration; set => Internal.waveDuration = value; }
+        public float spawnDelay { get => Internal.spawnDelay; set => Internal.spawnDelay = value; }
+        public int difficultyLevel { get => Internal.difficultyLevel; set => Internal.difficultyLevel = value; }
+
+        public int bonusStartingMaterial { get => Internal.bonusStartingMaterial; set => Internal.bonusStartingMaterial = value; }
+        public bool autoIncreaseDifficulty { get => Internal.autoIncreaseDifficulty; set => Internal.autoIncreaseDifficulty = value; }
+
+        public float autoIncreaseTime { get => Internal.autoIncreaseTime; set => Internal.autoIncreaseTime = value; }
+        public KeyCode StartWaveKey { get => Internal.StartWaveKey; set => Internal.StartWaveKey = value; }
+        public KeyCode StopWaveKey { get => Internal.StopWaveKey; set => Internal.StopWaveKey = value; }
+
     }
 }

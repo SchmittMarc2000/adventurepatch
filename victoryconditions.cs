@@ -45,6 +45,7 @@ namespace AdventurePatch
         //        InstanceSpecification.i.Adventure.PrimaryForce = nextPrimary;
         //    }
         //} didnt work since primaryforce is read-only
+        //  primaryforceid isnt though...
 
     private static void findAndReassignPrimaryForce()
     {
@@ -135,7 +136,7 @@ namespace AdventurePatch
             }
             else
             {
-                AdvLogger.LogInfo("Primary force exists: " + InstanceSpecification.i.Adventure.PrimaryForce.ToString());
+                //AdvLogger.LogInfo("Primary force exists: " + InstanceSpecification.i.Adventure.PrimaryForce.ToString());
             }
             for (int i = 0; i < vehiclecount; i++)
             {
@@ -150,31 +151,13 @@ namespace AdventurePatch
             // If there are allied craft, don't trigger victory assessment
             if (hasAlliedCraft)
             {
-                AdvLogger.LogInfo("Victory assessment prevented - allied craft still exist");
+                //AdvLogger.LogInfo("Victory assessment prevented - allied craft still exist");
                 return false; // Skip original method
             }
 
             // No allied craft found, proceed with victory assessment
             AdvLogger.LogInfo("No allied craft found - proceeding with victory assessment");
             return true;
-        }
-    }
-
-    // Optional: Patch the game finished method to add logging
-    [HarmonyPatch(typeof(VictoryAssessment))]
-    [HarmonyPatch("_Client_GameFinished")]
-    public class VictoryAssessmentClientPatch
-    {
-        static void Prefix(ConditionHeader result)
-        {
-            if (result.PassFail == enumPassFail.pass && result.FactionAffected == GAME_STATE.MyTeam)
-            {
-                AdvLogger.LogInfo("Victory condition met - game finished with win");
-            }
-            else
-            {
-                AdvLogger.LogInfo("Defeat condition met - game finished with loss");
-            }
         }
     }
 }

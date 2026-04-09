@@ -14,19 +14,21 @@ using BrilliantSkies.Ftd.Planets.Factions.Designs;
 using BrilliantSkies.Ftd.Planets.Instances;
 using BrilliantSkies.Ftd.Planets.Instances.Factions;
 using BrilliantSkies.Ftd.Terrain;
+using BrilliantSkies.Localisation.Runtime.FileManagers.Files;
 using BrilliantSkies.PlayerProfiles;
+using BrilliantSkies.Ui.Special.InfoStore;
 using BrilliantSkies.Ui.Tips;
 using HarmonyLib;
 using NetInfrastructure;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using System.Linq;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
@@ -373,13 +375,21 @@ namespace AdventurePatch
                     worldSpecificationFactionDesign2 = randomSelection.Select(delegate (WorldSpecificationFactionDesign t)
                     {
                         float difficulty = InstanceSpecification.i.Adventure.WarpPlaneDifficulty;
+                        if(ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
+                        {
+                        }
+                        if (ProfileManager.Instance.GetModule<AP_MConfig>().MaterialScaling)
+                        {
+                            difficulty = AdventurePatchUtils.CalculateDifficulty(AdventurePatchUtils.CalculatePlayerTeamCost());
+                        }
                         if (ProfileManager.Instance.GetModule<AP_MConfig>().OverrideSpawnDifficulty)
                             difficulty = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnDifficulty;
+
                         float num3 = Maths.NormalProbability(difficulty, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance;
                         return (double)num3;
                     });
                 }
-                else
+                else //custom encounter stuff!!!!!!!!!!
                 {
                     EnemyType enemytype = encounter.Enemies[i].Type;
                     FactionObjectId currentFaction = faction;
@@ -422,6 +432,7 @@ namespace AdventurePatch
                 {
                     enemynames.Add(worldSpecificationFactionDesign2.Name);
                     faction = worldSpecificationFactionDesign2.CorporationID;
+              
 
                     AdvLogger.LogInfo($"Spawning enemy {i + 1} of {totalEnemies}" +
                         " Enemy name: " + enemynames[i] +
@@ -436,8 +447,7 @@ namespace AdventurePatch
                     Vector3d spawnPosition = SpawnForcePatch.FindAPointInFrontOfPrimaryForce(spawnrange, out Quaternion r);
                     spawnPosition.y = (double)worldSpecificationFactionDesign2.GetRandomSpawnPointOffset().y;
 
-                    bool flag7 = AdventureModeProgression.AdventuringType == AdventureType.Land;
-                    if (flag7)
+                    if (AdventureModeProgression.AdventuringType == AdventureType.Land)
                     {
                         spawnPosition.y += (double)StaticTerrainAltitude.AltitudeForUniversalPosition(spawnPosition);
                     }
@@ -470,7 +480,6 @@ namespace AdventurePatch
                             null);
                     }
 
-                    // Wait before spawning the next enemy (skip wait for the last enemy)
                     if (i < totalEnemies - 1)
                     {
                         yield return new WaitForSeconds(delaySeconds);
@@ -495,21 +504,57 @@ namespace AdventurePatch
 
                 if (!isCustomEncounter || encounter == null)
                 {
+                    float difficulty = InstanceSpecification.i.Adventure.WarpPlaneDifficulty;
+                    float difficultyFactor = 1f;
+                    if (ProfileManager.Instance.GetModule<AP_MConfig>().OverrideSpawnDifficulty)
+                        difficulty = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnDifficulty;
+                    if (ProfileManager.Instance.GetModule<AP_MConfig>().MaterialScaling)
+                    {
+                        difficulty = AdventurePatchUtils.CalculateDifficulty(AdventurePatchUtils.CalculatePlayerTeamCost());
+                        difficulty += ProfileManager.Instance.GetModule<AP_MConfig>().ScalingOffset;
+                        AdvLogger.LogInfo("applied offset: " + ProfileManager.Instance.GetModule<AP_MConfig>().ScalingOffset);
+                    }
+                    if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
+                    {
+                        if (SpawnWaveMode.detectedSubmarine)
+                        {
+                            difficulty *= 1.3f;
+                            AdvLogger.LogInfo("increased difficulty because the player uses submarines ");
+                        }
+                    }
+                    AdvLogger.LogInfo("final difficulty for spawn: " + difficulty);
+                    
                     worldSpecificationFactionDesign2 = randomSelection.Select(delegate (WorldSpecificationFactionDesign t)
                     {
-                        float difficulty = InstanceSpecification.i.Adventure.WarpPlaneDifficulty;
-                        if (ProfileManager.Instance.GetModule<AP_MConfig>().OverrideSpawnDifficulty)
-                            difficulty = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnDifficulty;
-                        float num3 = Maths.NormalProbability(difficulty, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance;
+                        difficultyfactor = 1f;
+                        float chanceFactor = 1f;
+                        if(ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
+                        {
+                            if (SpawnWaveMode.encounteredEnemies.Contains(t.Name))
+                            {
+                                AdvLogger.LogInfo("encounter was among enemy names list");
+                                chanceFactor = 0.1f;            //reduce repeat occurences
+                            }
+                            if(SpawnWaveMode.detectedSubmarine)
+                            {
+                                if(t.BlueprintType == enumBlueprintType.Submarine)
+                                {
+                                    chanceFactor *= 10;
+                                    AdvLogger.LogInfo("increased spawning odds for submarine tenfold! " + t.Name);
+                                }
+                            }
+                        }
+
+                        float num3 = Maths.NormalProbability(difficulty * difficultyFactor, t.AdventureModeDifficultyMean, t.AdventureModeDifficultySigma) * t.AdventureModeChance*chanceFactor;
                         return (double)num3;
                     });
                 }
-                else
+                else //custom encounter
                 {
                     EnemyType enemytype = encounter.Enemies[i].Type;
                     // Create local copies for the lambda
                     FactionObjectId currentFaction = faction;
-                    List<string> currentEnemynames = enemynames;
+                    //List<string> currentEnemynames = enemynames;
                     float currentDifficultyFactor = difficultyfactor - (dropoff * i);
 
                     worldSpecificationFactionDesign2 = randomSelection.Select(delegate (WorldSpecificationFactionDesign t)
@@ -518,8 +563,8 @@ namespace AdventurePatch
                         {
                             if (!t.Name.Contains(encounter.Enemies[i].Name)) return 0.0f;
                         }
-                        if (currentFaction != null && (t.CorporationID != currentFaction && encounter.ForceSameFaction == true) ||
-                            (currentEnemynames.Contains(t.Name) && encounter.FilterDuplicates))
+                        if (currentFaction != null && (t.CorporationID != currentFaction && encounter.ForceSameFaction == true))
+                            //(currentEnemynames.Contains(t.Name) && encounter.FilterDuplicates))
                         {
                             return 0.0f;
                         }
@@ -543,58 +588,65 @@ namespace AdventurePatch
                     });
                 }
 
-                bool flag6 = worldSpecificationFactionDesign2 != null;
-                if (flag6)
+                if (worldSpecificationFactionDesign2 != null)
                 {
-                    enemynames.Add(worldSpecificationFactionDesign2.Name);
-                    faction = worldSpecificationFactionDesign2.CorporationID;
-
-                    AdvLogger.LogInfo($"Spawning enemy {i + 1} of {totalEnemies}" +
-                        " Enemy name: " + enemynames[i] +
-                        " enemy faction: " + faction.ToString() +
-                        " blueprinttype: " + worldSpecificationFactionDesign2.BlueprintType +
-                        " difficulty: " + worldSpecificationFactionDesign2.AdventureModeDifficultyMean);
-
-                    float bonusDistance = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnBonusDistance;
-                    float minimumSpawnRange = ProfileManager.Instance.GetModule<AP_MConfig>().MinimumSpawnrange;
-                    float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + bonusDistance, minimumSpawnRange);
-
-                    Vector3d spawnPosition = SpawnForcePatch.FindAPointInFrontOfPrimaryForce(spawnrange, out Quaternion r);
-                    spawnPosition.y = (double)worldSpecificationFactionDesign2.GetRandomSpawnPointOffset().y;
-
-                    bool flag7 = AdventureModeProgression.AdventuringType == AdventureType.Land;
-                    if (flag7)
+                    try
                     {
-                        spawnPosition.y += (double)StaticTerrainAltitude.AltitudeForUniversalPosition(spawnPosition);
+                        ObjectId Faction = worldSpecificationFactionDesign2.Id.FactionId;
+                        if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
+                        {
+                            if(SpawnWaveMode.factionToSpawn == null)
+                            {
+                                SpawnWaveMode.factionToSpawn = worldSpecificationFactionDesign2.Id.FactionId;
+                            } else
+                            {
+                                Faction = SpawnWaveMode.factionToSpawn;
+                            }
+                            SpawnWaveMode.encounteredEnemies.Add(worldSpecificationFactionDesign2.Name);
+                        }
+                        float bonusDistance = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnBonusDistance;
+                        float minimumSpawnRange = ProfileManager.Instance.GetModule<AP_MConfig>().MinimumSpawnrange;
+                        float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + bonusDistance, minimumSpawnRange);
+                        Vector3d spawnPosition = SpawnForcePatch.FindAPointInFrontOfPrimaryForce(spawnrange, out Quaternion r);
+                        spawnPosition.y = (double)worldSpecificationFactionDesign2.GetRandomSpawnPointOffset().y;
+                        if (AdventureModeProgression.AdventuringType == AdventureType.Land)
+                        {
+                            spawnPosition.y += (double)StaticTerrainAltitude.AltitudeForUniversalPosition(spawnPosition);
+                        }
+
+                        SpawnInstructions spawnInstructions = SpawnInstructions.IgnoreDamage | SpawnInstructions.Creative;
+                        bool isConnected = Net.IsConnected;
+                        AdvLogger.LogInfo($"issuing spawnrequest. factiondesignid: ({worldSpecificationFactionDesign2.Id}), factionid: ({worldSpecificationFactionDesign2.Id.FactionId}), instancename:{worldSpecificationFactionDesign2.Id.FactionId.FactionInst().FactionSpec.Name}");
+                        if (isConnected)
+                        {
+                            SpawnRequest spawnRequest = SpawnRequest.CreatePlanetRequest(
+                                worldSpecificationFactionDesign2.Id,
+                                spawnPosition,
+                                r,
+                                Faction,
+                                SpawnInstructions.None);
+                            spawnRequest.SpawningInstructions = spawnInstructions;
+                            spawnRequest.SetSilent(true);
+                            SpawnRequestManager.Instance.NewSpawnRequest(spawnRequest);
+                        }
+                        else
+                        {
+                            LoadHelper.SpawnAndInitialiseResourcesBlueprint(
+                                worldSpecificationFactionDesign2.Id,
+                                spawnPosition,
+                                r,
+                                Faction,
+                                new NetworkIdentityId(),
+                                spawnInstructions,
+                                null,
+                                null);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+                        AdvLogger.LogInfo($"[WaveMode] Error spawning enemy in adventurepatch.cs: {ex.Message}");
                     }
 
-                    SpawnInstructions spawnInstructions = SpawnInstructions.IgnoreDamage | SpawnInstructions.Creative;
-                    bool isConnected = Net.IsConnected;
-
-                    if (isConnected)
-                    {
-                        SpawnRequest spawnRequest = SpawnRequest.CreatePlanetRequest(
-                            worldSpecificationFactionDesign2.Id,
-                            spawnPosition,
-                            r,
-                            worldSpecificationFactionDesign2.Id.FactionId,
-                            SpawnInstructions.None);
-                        spawnRequest.SpawningInstructions = spawnInstructions;
-                        spawnRequest.SetSilent(true);
-                        SpawnRequestManager.Instance.NewSpawnRequest(spawnRequest);
-                    }
-                    else
-                    {
-                        LoadHelper.SpawnAndInitialiseResourcesBlueprint(
-                            worldSpecificationFactionDesign2.Id,
-                            spawnPosition,
-                            r,
-                            worldSpecificationFactionDesign2.Id.FactionId,
-                            new NetworkIdentityId(),
-                            spawnInstructions,
-                            null,
-                            null);
-                    }
                 }
             }
         }

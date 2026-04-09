@@ -14,8 +14,6 @@ namespace AdventurePatch
     {
         static bool Prefix(uint delayInSeconds, ref bool __result)
         {
-            //ModSettings settings = ModSettings.Reload();
-            //AdventureModeProgression.BellRingPeriod = settings.AdventureBellDelay;
             AdventureModeProgression.BellRingPeriod = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().AdventureBellDelay;
 
             uint now = (uint)GameTimer.Instance.GameTime;
@@ -44,8 +42,22 @@ namespace AdventurePatch
     {
         public static void Postfix(AdventureBell __instance, ProTip tip) //if we prefix and return false the tooltiptext for what it does goes missing, but not the annoying 1 minute thingy.
         {
-            //ModSettings settings;
-            //settings = ModSettings.Reload();
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
+            {
+                if(SpawnWaveMode.IsWaveActive)
+                {
+                    tip.Add<ProTipSegment_TextAdjustable>(
+                   new ProTipSegment_TextAdjustable(500,
+                   AdventureBell._locFile.Get("Tip_BellDelay", $"Wave is ongoing.", true)),
+                   Position.Middle);
+                } else
+                {
+                    tip.Add<ProTipSegment_TextAdjustable>(
+                   new ProTipSegment_TextAdjustable(500,
+                   AdventureBell._locFile.Get("Tip_BellDelay", $"Activate the bell to start the next wave.", true)),
+                   Position.Middle);
+                }
+            }
             uint num = (uint)GameTimer.Instance.GameTime;
             float deltatime = (num - InstanceSpecification.i.Adventure.LastBellRingTimeInt);
             uint belldelay = (uint)ProfileManager.Instance.GetModule<AP_MConfig>().AdventureBellDelay;
@@ -72,10 +84,7 @@ namespace AdventurePatch
     {
         public static bool Prefix(AdventureBell __instance, IStatusUpdate updater)
         {
-            //ModSettings settings;
-            //settings = ModSettings.Reload();
-            //if (settings.IgnoreAltitude) return false;
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude) {
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude || ProfileManager.Instance.GetModule<AP_MConfig>().waveMode) {
                 updater.FlagOkay(__instance);
                 return false;
             };
@@ -89,11 +98,13 @@ namespace AdventurePatch
     {
         static bool Prefix(AdventureBell __instance, ref bool __result)
         {
-            //ModSettings settings = ModSettings.Reload();
-            //if (settings.IgnoreAltitude)
-            if(ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude) // skips altitude check
+            if(ProfileManager.Instance.GetModule<AP_MConfig>().IgnoreAltitude || ProfileManager.Instance.GetModule<AP_MConfig>().waveMode) // skips altitude check
             {
-                __result = AdventureModeProgression.RequestDelayedSpawn(5U);
+                if(!ProfileManager.Instance.GetModule<AP_MConfig>().waveMode) { 
+                    __result = AdventureModeProgression.RequestDelayedSpawn(5U);
+                    return false;
+                }
+                SpawnWaveMode.StartWaveMode();
                 return false;
             }
             return true;

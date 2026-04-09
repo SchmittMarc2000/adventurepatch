@@ -1,5 +1,6 @@
 ﻿using BrilliantSkies.Core.Logger;
 using BrilliantSkies.Ftd.Avatar.Build;
+using BrilliantSkies.Ftd.Planets.Instances;
 using BrilliantSkies.Ftd.Planets.World.Distances;
 using BrilliantSkies.PlayerProfiles;
 using HarmonyLib;
@@ -18,6 +19,7 @@ namespace AdventurePatch
         {
             if (__instance.C == null)
                 return false;
+            if(InstanceSpecification.i.Header.IsDesignerOrCustomBattle) return true;
 
             MainConstruct main = __instance.C.Main;
 
@@ -26,12 +28,11 @@ namespace AdventurePatch
             if (main.State == enumConstructableState.frozen)                
             {
                 ConstructableChangeSync.Instance.FreezeVehicle(main, false);                //always allow unfreezing
+                return false;
             }
 
             if (!ProfileManager.Instance.GetModule<AP_MConfig>().AllowFreeze)
                 return true;
-
-            
 
             if (main.GetConstructableType() == enumConstructableTypes.vehicle)
             {
@@ -54,8 +55,7 @@ namespace AdventurePatch
                             }
                         }
                     }
-                    
-        ConstructableChangeSync.Instance.FreezeVehicle(main, true);
+                    ConstructableChangeSync.Instance.FreezeVehicle(main, true);
                 }
             }
 
