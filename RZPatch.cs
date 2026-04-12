@@ -69,9 +69,11 @@ namespace AdventurePatch
     [HarmonyPatch("SpawnAnRz")]
     class SpawnAnRzPatch
     {
+        public static bool overWritePosition = false;
+        public static Vector3d newPosition = new Vector3d();
         static bool Prefix()
         {
-            AdvLogger.LogInfo("Prefix for SpawnAnRzPatch called.");
+            AdvLogger.LogInfo("[Adventurepatch] Prefix for SpawnAnRzPatch called.");
 
             var config = ProfileManager.Instance.GetModule<AP_MConfig>();
             if (config.ResourceZoneBaseMaterial == 0)
@@ -136,7 +138,12 @@ namespace AdventurePatch
             if (clamptime == 0) clamptime = 1;
 
             int growthSize = (int)Mathf.Max((float)(materialAmount / (float)clamptime), Aux.Rnd.Next(materialGrowthMin, materialGrowthMax));
-
+            if(overWritePosition)
+            {
+                AdvLogger.LogInfo($"[Adventurepatch] overwriting position for spawn. Old: {universePosition} new: {newPosition}");
+                overWritePosition = false;
+                universePosition = newPosition;
+            }
             if (Net.IsServer)
             {
                 Coms.AddRpc(new RpcRequest(delegate (INetworkIdentity n)

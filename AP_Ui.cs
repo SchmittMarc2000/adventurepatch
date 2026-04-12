@@ -128,16 +128,15 @@ namespace AdventurePatch
         {
             if (InstanceSpecification.i.Header.IsAdventure)
             {
+                AdvLogger.LogInfo("[Adventurepatch] Spawning a resource zone via harmony access tools.");
                 Vector3d position = InstanceSpecification.i.Adventure.PrimaryForceUniversePosition;
                 var spawnAnRzMethod = typeof(AdventureModeProgression).GetMethod(
                     "SpawnAnRz",
                     BindingFlags.NonPublic | BindingFlags.Static
                 );
 
-                if (spawnAnRzMethod != null)
-                {
-                    spawnAnRzMethod.Invoke(null, null); // no parameters
-                };
+                spawnAnRzMethod?.Invoke(null, null); // no parameters
+;
             }
             else
             {
@@ -402,6 +401,12 @@ namespace AdventurePatch
             waveModeSettings.BackgroundStyleWhereApplicable = ConsoleStyles.Instance.Styles.Segments.OptionalSegmentDarkBackgroundWithHeader.Style;
             waveModeSettings.SetConditionalDisplay(() => _focus.waveMode);
 
+            var waveModeSpawningDistributionTest = waveModeSettings.AddInterpretter(SubjectiveToggle<AP_MConfig>.Quick(_focus,
+                "DEBUG: Test spawning distribution",
+                "DEBUG: Test the distribution of enemy spawns before spawning enemies.",
+                (AP_MConfig I, bool b) => I.testDistribution = b,
+                (AP_MConfig I) => I.testDistribution));
+
             waveModeSettings.AddInterpretter(SubjectiveFloatClampedWithBarFromMiddle<AP_MConfig>.Quick(_focus, 120, 1200, 15, 240,
                 M.m((AP_MConfig I) => I.waveDuration),
                 "Wave duration",
@@ -432,26 +437,26 @@ namespace AdventurePatch
 
             // Add rebind button for Start Wave
             waveModeSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,
-                "Rebind Start Wave",
-                new ToolTip("Click then press a key to rebind Start Wave"),
+                $"Rebind Start Wave ({ProfileManager.Instance.GetModule<AP_MConfig>().StartWaveKey.ToString()})",
+                new ToolTip($"Click then press a key to rebind Start Wave "),
                 (AP_MConfig I) => StartRebinding("StartWave")
             ));
 
             waveModeSettings.AddInterpretter(SubjectiveButton<AP_MConfig>.Quick(_focus,
-                "Rebind Stop Wave",
-                new ToolTip("Click then press a key to rebind Stop Wave"),
+                $"Rebind Stop Wave ({ProfileManager.Instance.GetModule<AP_MConfig>().StopWaveKey.ToString()})",
+                new ToolTip($"Click then press a key to rebind Stop Wave "),
                 (AP_MConfig I) => StartRebinding("StopWave")
             ));
             // For displaying current keybindings (dynamic, updates when config changes)
-            waveModeSettings.AddInterpretter(new SubjectiveDisplay<AP_MConfig>(
-                _focus,
-                M.m((AP_MConfig I) => $"Start Wave Key: {I.StartWaveKey}")
-            ));
+            //waveModeSettings.AddInterpretter(new SubjectiveDisplay<AP_MConfig>(
+            //    _focus,
+            //    M.m((AP_MConfig I) => $"Start Wave Key: {I.StartWaveKey}")
+            //));
 
-            waveModeSettings.AddInterpretter(new SubjectiveDisplay<AP_MConfig>(
-                _focus,
-                M.m((AP_MConfig I) => $"Stop Wave Key: {I.StopWaveKey}")
-            ));
+            //waveModeSettings.AddInterpretter(new SubjectiveDisplay<AP_MConfig>(
+            //    _focus,
+            //    M.m((AP_MConfig I) => $"Stop Wave Key: {I.StopWaveKey}")
+            //));
 
             // For rebinding status (dynamic)
             waveModeSettings.AddInterpretter(new SubjectiveDisplay<AP_MConfig>(

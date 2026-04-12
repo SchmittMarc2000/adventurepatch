@@ -61,7 +61,7 @@ namespace AdventurePatch
             var config = ProfileManager.Instance.GetModule<AP_MConfig>();
 
             // Check Start Wave key
-            bool startPressed = InputWrapper.GetKeyDown(config.StartWaveKey);
+            bool startPressed = InputWrapper.GetKeyDown(config.StartWaveKey) || InputWrapper.GetKeyUp(config.StartWaveKey) || InputWrapper.GetKey(config.StartWaveKey);
             if (startPressed && !_startWasPressed)
             {
                 CustomBindingActions.StartWaveFromKey();
@@ -69,7 +69,7 @@ namespace AdventurePatch
             _startWasPressed = startPressed;
 
             // Check Stop Wave key
-            bool stopPressed = InputWrapper.GetKeyDown(config.StopWaveKey);
+            bool stopPressed = InputWrapper.GetKeyDown(config.StopWaveKey) || InputWrapper.GetKeyUp(config.StopWaveKey) || InputWrapper.GetKey(config.StopWaveKey);
             if (stopPressed && !_stopWasPressed)
             {
                 CustomBindingActions.StopWaveFromKey();

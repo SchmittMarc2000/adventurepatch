@@ -36,7 +36,7 @@ namespace AdventurePatch
         private static int enemiesToSpawn = 20;
         private static int currentWave = 0;
         private static bool isWaveActive = false;
-        private static int difficultyLevel = 1;
+        private static int difficultyLevel = -1;
         public static bool detectedSubmarine = false;
         public static List<string> encounteredEnemies = new List<string>();
         private static float difficultyFactor = 1f;
@@ -59,6 +59,7 @@ namespace AdventurePatch
         private Coroutine waveCoroutine;
         private Coroutine spawnCoroutine;
         private static float waveStartTime;
+        public static List<int> lastSpawnSegments;
         public enum WaveType
         {
             Normal,
@@ -100,7 +101,6 @@ namespace AdventurePatch
                 return;
             }
             _instance = this;
-            runID = (uint)UnityEngine.Random.Range(0, int.MaxValue);
         }
 
         private void OnDestroy()
@@ -165,7 +165,7 @@ namespace AdventurePatch
             float difficultyMultiplier = Mathf.Lerp(1f, 2f, t);
             if (enemyCount == 0)
             {
-                spawnDelay = 10;
+                spawnDelay = 5;
             } else
             {
                 spawnDelay = (baseDelay + bonusTimePerEnemy * enemyCount * (float)Math.Sqrt(enemyCount)) * difficultyMultiplier * (float)Math.Sqrt(difficultyFactor);
@@ -198,7 +198,10 @@ namespace AdventurePatch
             AdvLogger.LogInfo("[AdventurePatch Wavemode] Retrieving wave count");
             return currentWave; 
         }
-
+        public static float getDifficultyFactor()
+        {
+            return difficultyFactor;
+        }
         public static void ForceNextWave()
         {
             if (_instance != null && isWaveActive)
@@ -206,6 +209,7 @@ namespace AdventurePatch
         }
         private void StartWave()
         {
+            
             if (Net.IsClient) return;
             factionToSpawn = null; //clear faction
             detectedSubmarine = false;
@@ -223,7 +227,7 @@ namespace AdventurePatch
             isWaveActive = true;
             waveStartTime = Time.time;
             chooseWaveEncounter();
-
+            
             ProfileManager.Instance.GetModule<AP_MConfig>().MaxEnemyCount = (uint)maxConcurrentEnemies;
             if (waveCoroutine != null) StopCoroutine(waveCoroutine);
             waveCoroutine = StartCoroutine(WaveCoroutine());
@@ -305,7 +309,9 @@ namespace AdventurePatch
                 minCost = min * playerTeamCost * (1 / difficultyFactor) * lowCostFactor * planetFactor;
             }
             maxCost = max * playerTeamCost * (1 / difficultyFactor) * lowCostFactor * planetFactor;
-            if (maxCost < 150000) maxCost = 15000;
+            if (maxCost < 20000) {
+                maxCost = Math.Max(minCost * 1.5f, 20000);
+            }
             AdvLogger.LogInfo($"[AdventurePatch Wavemode] calculating ranges. min: {min:F2}/{(min * (1 / difficultyFactor) * lowCostFactor * planetFactor):F2}, max: {max:F2}/{(max*(1 / difficultyFactor) * lowCostFactor * planetFactor):F2}, difficulty: {difficulty:F2}, cost: {playerTeamCost:F2}");
         }
         private string GetAdventureDisplayName()
@@ -584,7 +590,7 @@ namespace AdventurePatch
                 var construct = StaticConstructablesManager.Constructables[i];
                 if (construct == null) continue;
                 float current = construct.MainBasicsRestricted.GetResourceCost(ValueQueryType.AliveSubsAndDrones).Material; //currentlyalive
-                float max = construct.MainBasicsRestricted.GetResourceCost(ValueQueryType.SubsAndDrones).Material;
+                float max = construct.MainBasicsRestricted.GetResourceCost(ValueQueryType.IncludeSubObjects).Material;
                 AdvLogger.LogInfo($"current cost of craft: {current}, max cost of craft: {max}");
                 totalCurrentCost += current;
                 totalMaxCost += max;
@@ -618,7 +624,7 @@ namespace AdventurePatch
                         AdvLogger.LogInfo($"cant afford repair: {difference}");
                     }
                 }
-                NetworkedInfoStore.Add($"Repair complete. Paid {totalPaid} Materials.");
+                NetworkedInfoStore.Add($"Repair complete. Paid {Math.Abs(totalPaid)} Materials.");
                 AdvLogger.LogInfo($"[AdventurePatch Wavemode] Repair complete. cost sum before: {totalCurrentCost}, max: {totalMaxCost} difference: {totalMaxCost - totalCurrentCost}, paid: {totalPaid}");
 
             }

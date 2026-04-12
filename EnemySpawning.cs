@@ -31,7 +31,7 @@ namespace AdventurePatch
         
         public static void Postfix(ITimeStep dt)
         {
-            if(ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns)
+            if(ProfileManager.Instance.GetModule<AP_MConfig>().ForceEnemySpawns && !Net.IsClient)
             {
                 timeSinceLastSpawn += dt.DeltaTime;
                 if (gracePeriodTriggered || timeSinceLastSpawn > gracePeriodTimer || InstanceSpecification.i.Adventure.TimeInWarpPlane > gracePeriodTimer ) //inaccurate, since the player could have travelled through a portal before grace period TODO: More advanced checks
@@ -50,7 +50,7 @@ namespace AdventurePatch
         public static bool Prefix(ITimeStep dt)
         {
             CustomBindingManager.Update();
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode) {
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode && !Net.IsClient) {
                 InstanceSpecification.i.Adventure.TimeInWarpPlane += dt.DeltaTime;
                 if(InstanceSpecification.i.Adventure.WarpPlaneDifficulty < 5 && InstanceSpecification.i.Adventure.TimeInWarpPlane > 0.5f)
                 {
@@ -59,7 +59,7 @@ namespace AdventurePatch
                 }
                 return false;
             }
-            if (ProfileManager.Instance.GetModule<AP_MConfig>().autoIncreaseDifficulty)
+            if (ProfileManager.Instance.GetModule<AP_MConfig>().autoIncreaseDifficulty && !Net.IsClient)
             {
                 if (InstanceSpecification.i.Adventure.TimeInWarpPlane > ProfileManager.Instance.GetModule<AP_MConfig>().autoIncreaseTime)
                 {

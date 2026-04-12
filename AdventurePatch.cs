@@ -593,17 +593,6 @@ namespace AdventurePatch
                     try
                     {
                         ObjectId Faction = worldSpecificationFactionDesign2.Id.FactionId;
-                        if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
-                        {
-                            if(SpawnWaveMode.factionToSpawn == null)
-                            {
-                                SpawnWaveMode.factionToSpawn = worldSpecificationFactionDesign2.Id.FactionId;
-                            } else
-                            {
-                                Faction = SpawnWaveMode.factionToSpawn;
-                            }
-                            SpawnWaveMode.encounteredEnemies.Add(worldSpecificationFactionDesign2.Name);
-                        }
                         float bonusDistance = ProfileManager.Instance.GetModule<AP_MConfig>().SpawnBonusDistance;
                         float minimumSpawnRange = ProfileManager.Instance.GetModule<AP_MConfig>().MinimumSpawnrange;
                         float spawnrange = Mathf.Max(worldSpecificationFactionDesign2.DesiredEngagementRange + bonusDistance, minimumSpawnRange);
@@ -616,6 +605,30 @@ namespace AdventurePatch
 
                         SpawnInstructions spawnInstructions = SpawnInstructions.IgnoreDamage | SpawnInstructions.Creative;
                         bool isConnected = Net.IsConnected;
+                        if(worldSpecificationFactionDesign2.BlueprintType == enumBlueprintType.Installation || worldSpecificationFactionDesign2.BlueprintType == enumBlueprintType.Building)
+                        {
+                            var config = ProfileManager.Instance.GetModule<AP_MConfig>();
+
+                            bool scaling = config.ResourceZoneDiffScaling;
+                            float perLevel = config.BonusMaterialPerDifficultyLevel;
+                            int baseMats = config.ResourceZoneBaseMaterial;
+
+                            config.ResourceZoneDiffScaling = true;
+                            config.ResourceZoneBaseMaterial = 15000;
+                            config.BonusMaterialPerDifficultyLevel = 250;
+
+                            //record old config
+                            AdvLogger.LogInfo("[Adventurepatch] Spawning a resource zone for a fortress");
+                            SpawnAnRzPatch.overWritePosition = true;
+                            SpawnAnRzPatch.newPosition = spawnPosition;
+                            AP_Ui.spawnResourceZone();
+
+                            //restore config
+                            config.ResourceZoneDiffScaling = scaling;
+                            config.ResourceZoneBaseMaterial = baseMats;
+                            config.BonusMaterialPerDifficultyLevel = perLevel;
+
+                        }
                         AdvLogger.LogInfo($"issuing spawnrequest. factiondesignid: ({worldSpecificationFactionDesign2.Id}), factionid: ({worldSpecificationFactionDesign2.Id.FactionId}), instancename:{worldSpecificationFactionDesign2.Id.FactionId.FactionInst().FactionSpec.Name}");
                         if (isConnected)
                         {

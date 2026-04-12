@@ -58,6 +58,8 @@ namespace AdventurePatch
             public KeyCode StartWaveKey { get; set; } = KeyCode.Return;
             public KeyCode StopWaveKey { get; set; } = (KeyCode)289;
 
+            public bool testDistribution { get; set; } = false;
+
             //public bool EnemyDropChanges { get; set; } = false;
 
         }
@@ -110,6 +112,8 @@ namespace AdventurePatch
         public float autoIncreaseTime { get => Internal.autoIncreaseTime; set => Internal.autoIncreaseTime = value; }
         public KeyCode StartWaveKey { get => Internal.StartWaveKey; set => Internal.StartWaveKey = value; }
         public KeyCode StopWaveKey { get => Internal.StopWaveKey; set => Internal.StopWaveKey = value; }
+
+        public bool testDistribution { get => Internal.testDistribution; set => Internal.testDistribution = value; }
 
     }
 }
