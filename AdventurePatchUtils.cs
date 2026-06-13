@@ -217,7 +217,7 @@ namespace AdventurePatch
                     IEnumerable<WorldSpecificationFactionDesign> fullEnemyList = (from t in FactionSpecifications.i.Factions
                                                                                   where t.InstanceOfFaction.eController == FactionController.AI_General
                                                                                   select t).SelectMany((FactionSpecificationFaction t) => t.Designs.Designs);
-                    RandomSelection<WorldSpecificationFactionDesign> randomSelection = new RandomSelection<WorldSpecificationFactionDesign>();
+                    AP_RandomSelection<WorldSpecificationFactionDesign> randomSelection = new AP_RandomSelection<WorldSpecificationFactionDesign>();
                     int counter = 0;
                     if (ProfileManager.Instance.GetModule<AP_MConfig>().waveMode)
                     {
